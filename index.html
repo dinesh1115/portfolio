@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinesh Yadav | Portfolio</title>
+  <style>
+    /* Modern, friendly, vibrant design */
+    body {
+      font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #e0e7ff 0%, #fff 100%);
+      color: #222;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(90deg, #4f8cff 60%, #7fbcff 100%);
+      color: #fff;
+      padding: 36px 0 24px;
+      text-align: center;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      box-shadow: 0 4px 24px rgba(79,140,255,0.08);
+    }
+    header h1 {
+      font-size: 2.8em;
+      margin: 0 0 8px;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 1.2em;
+      margin: 0 0 18px;
+      font-weight: 400;
+      opacity: 0.95;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: #fff;
+      background: rgba(255,255,255,0.12);
+      padding: 8px 18px;
+      margin: 0 6px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    nav a:hover {
+      background: #fff;
+      color: #4f8cff;
+    }
+    section {
+      max-width: 900px;
+      margin: 36px auto;
+      padding: 32px 24px;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px rgba(79,140,255,0.07);
+      margin-bottom: 24px;
+      animation: fadeIn 0.7s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: none;}
+    }
+    h2 {
+      color: #4f8cff;
+      font-size: 2em;
+      margin-bottom: 18px;
+      border-bottom: 2px solid #e0e7ff;
+      padding-bottom: 6px;
+      font-weight: 600;
+    }
+    h3 {
+      color: #222;
+      font-size: 1.25em;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0 0 10px 0;
+    }
+    ul li {
+      padding: 7px 0;
+      position: relative;
+      padding-left: 22px;
+    }
+    ul li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #4f8cff;
+      font-size: 1.2em;
+      top: 0;
+    }
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 28px;
+      margin-top: 10px;
+    }
+    .project {
+      background: linear-gradient(120deg, #e0e7ff 60%, #f7fbff 100%);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(79,140,255,0.06);
+      padding: 20px 18px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(79,140,255,0.13);
+    }
+    .project img {
+      width: 100%;
+      border-radius: 8px;
+      margin: 12px 0;
+      box-shadow: 0 2px 8px rgba(79,140,255,0.08);
+    }
+    .links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #4f8cff;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .links a:hover {
+      color: #222;
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 24px 0;
+      background: linear-gradient(90deg, #4f8cff 60%, #7fbcff 100%);
+      color: #fff;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      margin-top: 40px;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      section {
+        padding: 18px 8px;
+      }
+      header h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.3em;
+      }
+      .project-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Dinesh Yadav</h1>
+  <p>Software Engineer </p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="education">
+  <h2>Education</h2>
+  <ul>
+    <li><b>Master of Computer Applications (MCA)</b>, St. Joseph’s University, Bengaluru (2023 – 2025) | <span style="background:#e0e7ff;color:#4f8cff;padding:2px 8px;border-radius:8px;font-weight:bold;">CGPA: 8.0</span></li>
+    <li><b>Bachelor of Computer Applications (BCA)</b>, Jain University, Bengaluru (2019 – 2022) | <span style="background:#e0e7ff;color:#4f8cff;padding:2px 8px;border-radius:8px;font-weight:bold;">CGPA: 8.1</span></li>
+  </ul>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    Aspiring Software Engineer pursuing MCA at St. Joseph’s University, Bengaluru, with hands-on experience in building full-stack applications, REST APIs, and AI-based systems. Passionate about developing scalable, efficient, and reliable software solutions. Eager to contribute to innovative projects and make a meaningful impact in dynamic tech-driven environments.
+  </p>
+  <ul>
+    <li>Strong foundation in CS fundamentals: Data Structures, Algorithms, OOP, SDLC</li>
+    <li>Quick learner, problem solver, and team player</li>
+    <li>Enjoy collaborating, leading teams, and presenting solutions</li>
+    <li>Interest in AI, automation, and cloud technologies</li>
+  </ul>
+</section>
+
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <ul>
+    <li><b>Languages:</b> Java, Python, C#, JavaScript</li>
+    <li><b>CS Fundamentals:</b> Data Structures, Algorithms, OOP, SDLC, Debugging</li>
+    <li><b>Frameworks & Tools:</b> FastAPI, React Native, OpenCV, Swing, Git, JDBC</li>
+    <li><b>ML & Data:</b> Scikit-learn, Pandas, NumPy, U-Net, EDA, Model Evaluation</li>
+    <li><b>Cloud & DevOps:</b> AWS (EC2, S3), Azure Basics, REST APIs, CI/CD, GitHub</li>
+    <li><b>Databases:</b> MySQL, MongoDB, SQL</li>
+    <li><b>Web Technologies:</b> HTML, CSS</li>
+  </ul>
+  <h3>Soft Skills</h3>
+  <ul>
+    <li>Teamwork & Leadership</li>
+    <li>Time Management</li>
+    <li>Critical Thinking</li>
+    <li>Presentation & Public Speaking</li>
+  </ul>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project-list">
+    <div class="project" onclick="window.open('https://github.com/dinesh1115/inventory-management-system', '_blank')" style="cursor:pointer;">
+      <h3>📦 Smart Inventory Management System</h3>
+      <p>Java desktop app for real-time stock tracking with automated low-stock alerts. Reduced manual inventory errors by 40%, boosting operational accuracy.</p>
+    </div>
+    <div class="project" onclick="window.open('https://github.com/dinesh1115/flood-rescue-drone', '_blank')" style="cursor:pointer;">
+      <h3>🚁 Flood Rescue Drone Detection System</h3>
+      <p>Drone-based live flood zone detection pipeline with real-time alerts. Leveraged U-Net segmentation to enable early rescue operations.</p>
+    </div>
+    <div class="project" onclick="window.open('https://github.com/dinesh1115/restaurant-management-system', '_blank')" style="cursor:pointer;">
+      <h3>🍴 Restaurant Management System</h3>
+      <p>Full-stack solution to manage menus, orders, and reservations. Integrated secure REST APIs for seamless communication between mobile UI and backend.</p>
+    </div>
+    <div class="project" onclick="window.open('https://github.com/dinesh1115/customer-churn-prediction', '_blank')" style="cursor:pointer;">
+      <h3>📊 Customer Churn Prediction</h3>
+      <p>ML model (F1-score: 0.89) to identify churn risks and deliver actionable insights for customer retention.</p>
+    </div>
+    <div class="project" onclick="window.open('https://github.com/dinesh1115/student-ai-chatbot', '_blank')" style="cursor:pointer;">
+      <h3>🧠 AI Chatbot for Students</h3>
+      <p>Python NLP chatbot to answer FAQs and automate admin support.</p>
+    </div>
+    <div class="project" onclick="window.open('https://github.com/dinesh1115/portfolio', '_blank')" style="cursor:pointer;">
+      <h3>📱 Personal Portfolio Website</h3>
+      <p>Responsive website to showcase my skills, projects, and achievements.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <ul>
+    <li><b>Uniqtx - Software Development Intern</b> | Bangalore | Jan 2025 – Jun 2025<br>
+      Designed and deployed RESTful APIs using FastAPI and MongoDB for a restaurant management system.<br>
+      Collaborated in Agile sprints to deliver secure, mobile-first features, performed unit testing, and contributed to CI/CD integration on GitHub for automated deployments.<br>
+      <b>Key Contributions:</b>
+      <ul>
+        <li>Developed authentication and authorization modules for user management.</li>
+        <li>Optimized database queries, reducing response time by 30%.</li>
+        <li>Created interactive dashboards for order analytics using React Native.</li>
+        <li>Documented API endpoints and workflows for seamless team onboarding.</li>
+        <li>Participated in code reviews and mentored junior interns.</li>
+      </ul>
+    </li>
+    <li><b>Hindustan Aeronautics Limited (HAL) - Internship Trainee</b> | Bangalore | Mar 2022 – Apr 2022<br>
+      Analyzed helicopter flight test and incident data to improve aviation safety reporting.<br>
+      Assisted with debugging mission-critical datasets used in aircraft performance validations.<br>
+      <b>Key Contributions:</b>
+      <ul>
+        <li>Automated data cleaning scripts in Python for faster report generation.</li>
+        <li>Visualized flight metrics to identify anomalies and trends.</li>
+        <li>Presented findings to senior engineers, aiding decision-making.</li>
+      </ul>
+    </li>
+    <li><b>Freelance Projects</b> | Remote | 2023 – Present<br>
+      <ul>
+        <li>Built custom web applications for local businesses using HTML, CSS, and JavaScript.</li>
+        <li>Integrated payment gateways and automated email notifications.</li>
+        <li>Provided technical support and maintenance for deployed solutions.</li>
+      </ul>
+    </li>
+    <li><b>Open Source Contributor</b> | GitHub | 2024 – Present<br>
+      <ul>
+        <li>Contributed bug fixes and documentation improvements to Python and JavaScript repositories.</li>
+        <li>Collaborated with global teams on feature enhancements and code reviews.</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section id="publication">
+  <h2>Publication</h2>
+  <ul>
+    <li>
+      <b>Cloud-Enabled Threats: Risk of 51% Attacks in Cryptocurrencies</b><br>
+      International Journal of Modern Engineering Research (IJMER)<br>
+      Analyzed vulnerabilities in PaaS infrastructures expanding attack surfaces in blockchain systems; proposed proactive mitigation strategies.
+    </li>
+  </ul>
+</section>
+
+<section id="certifications">
+  <h2>Certifications</h2>
+  <ul>
+    <li>Microsoft Azure Fundamentals</li>
+    <li>Python for Everybody – Coursera</li>
+    <li>Data Science Bootcamp – Udemy</li>
+  </ul>
+</section>
+
+<section id="achievements">
+  <h2>Achievements</h2>
+  <ul>
+    <li>🏆 1st Prize – IoT Drone Project, Christ University – A real-time drone system for flood rescue.</li>
+    <li>🥈 2nd Prize – Ideation Ignite, Acharya College – Recognized for proposing an innovative tech-based solution during ideation challenge.</li>
+    <li>🥇 1st Prize – Treasure Hunt, St. Paul College – Won for exceptional teamwork and strategic planning skills.</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>📧 <a href="mailto:dineshashok333@gmail.com">dineshashok333@gmail.com</a></p>
+  <p>📱 +91 9886434743</p>
+  <div class="links">
+    <a href="https://linkedin.com/in/dinesh1115w" target="_blank">LinkedIn</a>
+    <a href="https://github.com/dinesh1115" target="_blank">GitHub</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Dinesh Yadav</p>
+</footer>
+</body>
+</html>
+</html>
+</html>
+</html>
+</footer>
+
+</body>
+</html>
+</html>
+</html>
