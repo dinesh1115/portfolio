@@ -63,7 +63,7 @@
       animation: fadeIn 0.7s;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px);}
+      from { opacity: 0; transform: translateY(30px);} 
       to { opacity: 1; transform: none;}
     }
     h2 {
@@ -286,29 +286,45 @@
 <section id="projects">
   <h2>Projects</h2>
   <div class="project-list">
-    <div class="project" onclick="window.open('https://github.com/dinesh1115/inventory-management-system', '_blank')" style="cursor:pointer;">
+    <div class="project" style="cursor:pointer;">
       <h3>📦 Smart Inventory Management System</h3>
       <p>Java desktop app for real-time stock tracking with automated low-stock alerts. Reduced manual inventory errors by 40%, boosting operational accuracy.</p>
     </div>
-    <div class="project" onclick="window.open('https://github.com/dinesh1115/flood-rescue-drone', '_blank')" style="cursor:pointer;">
+    <div class="project" style="cursor:pointer;">
       <h3>🚁 Flood Rescue Drone Detection System</h3>
       <p>Drone-based live flood zone detection pipeline with real-time alerts. Leveraged U-Net segmentation to enable early rescue operations.</p>
     </div>
-    <div class="project" onclick="window.open('https://github.com/dinesh1115/restaurant-management-system', '_blank')" style="cursor:pointer;">
+    <div class="project" style="cursor:pointer;">
       <h3>🍴 Restaurant Management System</h3>
       <p>Full-stack solution to manage menus, orders, and reservations. Integrated secure REST APIs for seamless communication between mobile UI and backend.</p>
     </div>
-    <div class="project" onclick="window.open('https://github.com/dinesh1115/customer-churn-prediction', '_blank')" style="cursor:pointer;">
+    <div class="project" style="cursor:pointer;">
       <h3>📊 Customer Churn Prediction</h3>
       <p>ML model (F1-score: 0.89) to identify churn risks and deliver actionable insights for customer retention.</p>
     </div>
-    <div class="project" onclick="window.open('https://github.com/dinesh1115/student-ai-chatbot', '_blank')" style="cursor:pointer;">
+    <div class="project" style="cursor:pointer;">
       <h3>🧠 AI Chatbot for Students</h3>
       <p>Python NLP chatbot to answer FAQs and automate admin support.</p>
     </div>
-    <div class="project" onclick="window.open('https://github.com/dinesh1115/portfolio', '_blank')" style="cursor:pointer;">
+    <div class="project" style="cursor:pointer;">
       <h3>📱 Personal Portfolio Website</h3>
       <p>Responsive website to showcase my skills, projects, and achievements.</p>
+    </div>
+
+    <!-- Added as requested -->
+    <div class="project" style="cursor:pointer;">
+      <h3>Smart Inventory Management System — Java, Swing, JDBC, MySQL</h3>
+      <ul>
+        <li>Built a desktop application for real-time stock tracking with automated low-stock alerts.</li>
+        <li>Designed database-backed transaction flows, reducing manual errors by 40%.</li>
+      </ul>
+    </div>
+    <div class="project" style="cursor:pointer;">
+      <h3>Online Banking System — Java, JDBC, MySQL</h3>
+      <ul>
+        <li>Secure banking application with account creation, deposits, withdrawals, and transaction history.</li>
+        <li>multithreaded transaction handling ensuring consistency in concurrent operations.</li>
+      </ul>
     </div>
   </div>
 </section>
