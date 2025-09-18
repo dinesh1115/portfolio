@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dinesh Yadav | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* Dark modern theme */
+    /* ---------------- Dark Modern Theme ---------------- */
     body {
       font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
       margin: 0;
@@ -13,8 +14,11 @@
       background: #0f0f15;
       color: #e0e0e0;
       min-height: 100vh;
+      scroll-behavior: smooth;
+      padding-bottom: 80px; /* space for floating nav */
     }
 
+    /* ---------------- Header ---------------- */
     header {
       background: linear-gradient(135deg, #1f1f2e, #2c2c3c);
       color: #ffffff;
@@ -23,6 +27,9 @@
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.7);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     header h1 {
       font-size: 3em;
@@ -38,25 +45,34 @@
       opacity: 0.85;
       color: #c0c0c0;
     }
-    nav {
-      margin-top: 12px;
+
+    /* ---------------- Floating Bottom Nav ---------------- */
+    .bottom-nav {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(20,20,30,0.9);
+      backdrop-filter: blur(8px);
+      padding: 12px 24px;
+      border-radius: 40px;
+      box-shadow: 0 4px 20px rgba(0,224,255,0.4);
+      display: flex;
+      gap: 20px;
+      z-index: 1000;
     }
-    nav a {
+    .bottom-nav a {
       color: #00e0ff;
-      background: rgba(0,224,255,0.12);
-      padding: 10px 20px;
-      margin: 0 6px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 500;
+      font-size: 1.5em;
       transition: all 0.3s ease;
     }
-    nav a:hover {
-      background: #00e0ff;
-      color: #0f0f15;
-      transform: scale(1.1);
+    .bottom-nav a:hover, .bottom-nav a.active {
+      color: #ffffff;
+      transform: scale(1.2);
+      text-shadow: 0 0 8px #00e0ff;
     }
 
+    /* ---------------- Sections ---------------- */
     section {
       max-width: 900px;
       margin: 36px auto;
@@ -66,6 +82,18 @@
       box-shadow: 0 2px 20px rgba(0,0,0,0.8);
       margin-bottom: 28px;
       animation: fadeIn 0.7s;
+      position: relative;
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: 0;
+      width: 100%;
+      height: 24px;
+      background: linear-gradient(135deg, #0f0f15 50%, #1a1a28 50%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
 
     @keyframes fadeIn {
@@ -81,7 +109,6 @@
       padding-bottom: 6px;
       font-weight: 600;
     }
-
     h3 {
       color: #ffffff;
       font-size: 1.25em;
@@ -94,14 +121,12 @@
       padding-left: 0;
       margin: 0 0 10px 0;
     }
-
     ul li {
       padding: 7px 0;
       position: relative;
       padding-left: 22px;
       color: #d0d0d0;
     }
-
     ul li:before {
       content: "•";
       position: absolute;
@@ -111,16 +136,18 @@
       top: 0;
     }
 
+    /* ---------------- Project Cards ---------------- */
     .project-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 28px;
       margin-top: 12px;
     }
-
     .project {
-      background: #252536;
+      background: rgba(37,35,54,0.85);
+      backdrop-filter: blur(8px);
       border-radius: 16px;
+      border: 1px solid rgba(0,224,255,0.2);
       box-shadow: 0 4px 20px rgba(0,0,0,0.7);
       padding: 22px 20px;
       transition: transform 0.3s, box-shadow 0.3s;
@@ -131,7 +158,6 @@
       cursor: pointer;
       user-select: none;
     }
-
     .project:hover {
       transform: translateY(-6px) scale(1.05);
       box-shadow: 0 10px 40px rgba(0,224,255,0.4);
@@ -149,14 +175,15 @@
       text-decoration: none;
       color: #00e0ff;
       font-weight: 500;
-      transition: color 0.3s;
+      transition: color 0.3s, text-shadow 0.3s;
     }
-
     .links a:hover {
       color: #ffffff;
+      text-shadow: 0 0 8px #00e0ff, 0 0 12px #00e0ff;
       text-decoration: underline;
     }
 
+    /* ---------------- Footer ---------------- */
     footer {
       text-align: center;
       padding: 28px 0;
@@ -170,14 +197,12 @@
       box-shadow: 0 -4px 24px rgba(0,0,0,0.7);
     }
 
-    /* Responsive */
+    /* ---------------- Responsive ---------------- */
     @media (max-width: 600px) {
-      body { font-size: 1em; }
+      body { font-size: 1em; padding-bottom: 100px; }
       header { padding: 24px 0 16px; border-bottom-left-radius: 24px; border-bottom-right-radius: 24px; }
       header h1 { font-size: 1.7em; }
       header p { font-size: 1em; }
-      nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 8px; }
-      nav a { padding: 6px 14px; font-size: 0.95em; margin: 2px 0; }
       section { padding: 16px 8px; margin: 16px 8px; border-radius: 12px; }
       h2 { font-size: 1.2em; margin-bottom: 10px; padding-bottom: 2px; }
       h3 { font-size: 1em; margin-bottom: 6px; }
@@ -195,15 +220,18 @@
 <header>
   <h1>Dinesh Yadav</h1>
   <p>Software Engineer</p>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#achievements">Achievements</a>
-    <a href="#contact">Contact</a>
-  </nav>
 </header>
+
+<!-- ---------------- Floating Bottom Nav ---------------- -->
+<div class="bottom-nav">
+  <a href="#education" title="Education"><i class="fas fa-graduation-cap"></i></a>
+  <a href="#about" title="About"><i class="fas fa-user"></i></a>
+  <a href="#skills" title="Skills"><i class="fas fa-code"></i></a>
+  <a href="#projects" title="Projects"><i class="fas fa-box-open"></i></a>
+  <a href="#experience" title="Experience"><i class="fas fa-briefcase"></i></a>
+  <a href="#achievements" title="Achievements"><i class="fas fa-trophy"></i></a>
+  <a href="#contact" title="Contact"><i class="fas fa-envelope"></i></a>
+</div>
 
 <section id="education">
   <h2>Education</h2>
@@ -317,6 +345,24 @@
 <footer>
   <p>© 2025 Dinesh Yadav</p>
 </footer>
+
+<script>
+  // ---------------- Scroll Spy ----------------
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.bottom-nav a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (scrollY >= sectionTop) current = section.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href').includes(current)) a.classList.add('active');
+    });
+  });
+</script>
 
 </body>
 </html>
