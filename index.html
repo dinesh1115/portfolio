@@ -5,225 +5,188 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dinesh Yadav | Portfolio</title>
   <style>
-    /* Modern, friendly, vibrant design */
+    /* Dark modern theme */
     body {
       font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #e0e7ff 0%, #fff 100%);
-      color: #222;
+      background: #0f0f15;
+      color: #e0e0e0;
       min-height: 100vh;
     }
+
     header {
-      background: linear-gradient(90deg, #4f8cff 60%, #7fbcff 100%);
-      color: #fff;
-      padding: 36px 0 24px;
+      background: linear-gradient(135deg, #1f1f2e, #2c2c3c);
+      color: #ffffff;
+      padding: 40px 0 30px;
       text-align: center;
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
-      box-shadow: 0 4px 24px rgba(79,140,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.7);
     }
     header h1 {
-      font-size: 2.8em;
+      font-size: 3em;
       margin: 0 0 8px;
       letter-spacing: 1px;
       font-weight: 700;
+      color: #00e0ff;
     }
     header p {
-      font-size: 1.2em;
+      font-size: 1.3em;
       margin: 0 0 18px;
       font-weight: 400;
-      opacity: 0.95;
+      opacity: 0.85;
+      color: #c0c0c0;
     }
     nav {
-      margin-top: 10px;
+      margin-top: 12px;
     }
     nav a {
-      color: #fff;
-      background: rgba(255,255,255,0.12);
-      padding: 8px 18px;
+      color: #00e0ff;
+      background: rgba(0,224,255,0.12);
+      padding: 10px 20px;
       margin: 0 6px;
-      border-radius: 20px;
+      border-radius: 25px;
       text-decoration: none;
       font-weight: 500;
-      transition: background 0.2s;
+      transition: all 0.3s ease;
     }
     nav a:hover {
-      background: #fff;
-      color: #4f8cff;
+      background: #00e0ff;
+      color: #0f0f15;
+      transform: scale(1.1);
     }
+
     section {
       max-width: 900px;
       margin: 36px auto;
-      padding: 32px 24px;
-      background: #fff;
+      padding: 36px 28px;
+      background: #1a1a28;
       border-radius: 18px;
-      box-shadow: 0 2px 16px rgba(79,140,255,0.07);
-      margin-bottom: 24px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.8);
+      margin-bottom: 28px;
       animation: fadeIn 0.7s;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(30px);} 
       to { opacity: 1; transform: none;}
     }
+
     h2 {
-      color: #4f8cff;
+      color: #00e0ff;
       font-size: 2em;
       margin-bottom: 18px;
-      border-bottom: 2px solid #e0e7ff;
+      border-bottom: 2px solid #33334a;
       padding-bottom: 6px;
       font-weight: 600;
     }
+
     h3 {
-      color: #222;
+      color: #ffffff;
       font-size: 1.25em;
       margin-bottom: 10px;
       font-weight: 500;
     }
+
     ul {
       list-style: none;
       padding-left: 0;
       margin: 0 0 10px 0;
     }
+
     ul li {
       padding: 7px 0;
       position: relative;
       padding-left: 22px;
+      color: #d0d0d0;
     }
+
     ul li:before {
       content: "•";
       position: absolute;
       left: 0;
-      color: #4f8cff;
+      color: #00e0ff;
       font-size: 1.2em;
       top: 0;
     }
+
     .project-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 28px;
-      margin-top: 10px;
+      margin-top: 12px;
     }
+
     .project {
-      background: linear-gradient(120deg, #e0e7ff 60%, #f7fbff 100%);
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(79,140,255,0.06);
-      padding: 20px 18px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      background: #252536;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+      padding: 22px 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
       min-height: 220px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
     }
+
     .project:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 8px 32px rgba(79,140,255,0.13);
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 10px 40px rgba(0,224,255,0.4);
     }
+
     .project img {
       width: 100%;
-      border-radius: 8px;
-      margin: 12px 0;
-      box-shadow: 0 2px 8px rgba(79,140,255,0.08);
+      border-radius: 10px;
+      margin: 14px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
     }
+
     .links a {
-      margin: 0 10px;
+      margin: 0 12px;
       text-decoration: none;
-      color: #4f8cff;
+      color: #00e0ff;
       font-weight: 500;
-      transition: color 0.2s;
+      transition: color 0.3s;
     }
+
     .links a:hover {
-      color: #222;
+      color: #ffffff;
       text-decoration: underline;
     }
+
     footer {
       text-align: center;
-      padding: 24px 0;
-      background: linear-gradient(90deg, #4f8cff 60%, #7fbcff 100%);
-      color: #fff;
+      padding: 28px 0;
+      background: linear-gradient(135deg, #1f1f2e, #2c2c3c);
+      color: #00e0ff;
       border-top-left-radius: 40px;
       border-top-right-radius: 40px;
       margin-top: 40px;
       font-size: 1.1em;
       letter-spacing: 1px;
-    }
-    /* Responsive */
-    @media (max-width: 600px) {
-      body {
-        font-size: 1em;
-      }
-      header {
-        padding: 24px 0 16px;
-        border-bottom-left-radius: 24px;
-        border-bottom-right-radius: 24px;
-      }
-      header h1 {
-        font-size: 1.5em;
-      }
-      header p {
-        font-size: 1em;
-      }
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px;
-        margin-top: 8px;
-      }
-      nav a {
-        padding: 6px 12px;
-        font-size: 0.95em;
-        margin: 2px 0;
-      }
-      section {
-        padding: 12px 4px;
-        margin: 18px 4px;
-        border-radius: 12px;
-      }
-      h2 {
-        font-size: 1.1em;
-        margin-bottom: 10px;
-        padding-bottom: 2px;
-      }
-      h3 {
-        font-size: 1em;
-        margin-bottom: 6px;
-      }
-      ul li {
-        font-size: 0.98em;
-        padding-left: 18px;
-      }
-      .project-list {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-      .project {
-        padding: 12px 8px;
-        min-height: 120px;
-        font-size: 0.98em;
-      }
-      .project img {
-        margin: 8px 0;
-      }
-      .links a {
-        margin: 0 6px;
-        font-size: 1em;
-      }
-      footer {
-        padding: 14px 0;
-        border-top-left-radius: 24px;
-        border-top-right-radius: 24px;
-        font-size: 1em;
-      }
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.7);
     }
 
-    /* Extra: Make links/buttons easier to tap */
-    nav a, .links a {
-      touch-action: manipulation;
-    }
-    .project {
-      cursor: pointer;
-      user-select: none;
+    /* Responsive */
+    @media (max-width: 600px) {
+      body { font-size: 1em; }
+      header { padding: 24px 0 16px; border-bottom-left-radius: 24px; border-bottom-right-radius: 24px; }
+      header h1 { font-size: 1.7em; }
+      header p { font-size: 1em; }
+      nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 8px; }
+      nav a { padding: 6px 14px; font-size: 0.95em; margin: 2px 0; }
+      section { padding: 16px 8px; margin: 16px 8px; border-radius: 12px; }
+      h2 { font-size: 1.2em; margin-bottom: 10px; padding-bottom: 2px; }
+      h3 { font-size: 1em; margin-bottom: 6px; }
+      ul li { font-size: 0.95em; padding-left: 18px; }
+      .project-list { grid-template-columns: 1fr; gap: 16px; }
+      .project { padding: 14px 10px; min-height: 120px; font-size: 0.95em; }
+      .project img { margin: 8px 0; }
+      .links a { margin: 0 6px; font-size: 0.95em; }
+      footer { padding: 18px 0; border-top-left-radius: 24px; border-top-right-radius: 24px; font-size: 1em; }
     }
   </style>
 </head>
@@ -231,7 +194,7 @@
 
 <header>
   <h1>Dinesh Yadav</h1>
-  <p>Software Engineer </p>
+  <p>Software Engineer</p>
   <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -245,8 +208,8 @@
 <section id="education">
   <h2>Education</h2>
   <ul>
-    <li><b>Master of Computer Applications (MCA)</b>, St. Joseph’s University, Bengaluru (2023 – 2025) | <span style="background:#e0e7ff;color:#4f8cff;padding:2px 8px;border-radius:8px;font-weight:bold;">SGPA: 8.3</span></li>
-    <li><b>Bachelor of Computer Applications (BCA)</b>, Jain University, Bengaluru (2019 – 2022) | <span style="background:#e0e7ff;color:#4f8cff;padding:2px 8px;border-radius:8px;font-weight:bold;">SGPA: 8.0</span></li>
+    <li><b>Master of Computer Applications (MCA)</b>, St. Joseph’s University, Bengaluru (2023 – 2025) | <span style="background:#33334a;color:#00e0ff;padding:2px 8px;border-radius:8px;font-weight:bold;">SGPA: 8.3</span></li>
+    <li><b>Bachelor of Computer Applications (BCA)</b>, Jain University, Bengaluru (2019 – 2022) | <span style="background:#33334a;color:#00e0ff;padding:2px 8px;border-radius:8px;font-weight:bold;">SGPA: 8.0</span></li>
   </ul>
 </section>
 
@@ -286,45 +249,29 @@
 <section id="projects">
   <h2>Projects</h2>
   <div class="project-list">
-    <div class="project" style="cursor:pointer;">
+    <div class="project">
       <h3>📦 Smart Inventory Management System</h3>
       <p>Java desktop app for real-time stock tracking with automated low-stock alerts. Reduced manual inventory errors by 40%, boosting operational accuracy.</p>
     </div>
-    <div class="project" style="cursor:pointer;">
+    <div class="project">
       <h3>🚁 Flood Rescue Drone Detection System</h3>
       <p>Drone-based live flood zone detection pipeline with real-time alerts. Leveraged U-Net segmentation to enable early rescue operations.</p>
     </div>
-    <div class="project" style="cursor:pointer;">
+    <div class="project">
       <h3>🍴 Restaurant Management System</h3>
       <p>Full-stack solution to manage menus, orders, and reservations. Integrated secure REST APIs for seamless communication between mobile UI and backend.</p>
     </div>
-    <div class="project" style="cursor:pointer;">
+    <div class="project">
       <h3>📊 Customer Churn Prediction</h3>
       <p>ML model (F1-score: 0.89) to identify churn risks and deliver actionable insights for customer retention.</p>
     </div>
-    <div class="project" style="cursor:pointer;">
+    <div class="project">
       <h3>🧠 AI Chatbot for Students</h3>
       <p>Python NLP chatbot to answer FAQs and automate admin support.</p>
     </div>
-    <div class="project" style="cursor:pointer;">
+    <div class="project">
       <h3>📱 Personal Portfolio Website</h3>
       <p>Responsive website to showcase my skills, projects, and achievements.</p>
-    </div>
-
-    <!-- Added as requested -->
-    <div class="project" style="cursor:pointer;">
-      <h3>Smart Inventory Management System — Java, Swing, JDBC, MySQL</h3>
-      <ul>
-        <li>Built a desktop application for real-time stock tracking with automated low-stock alerts.</li>
-        <li>Designed database-backed transaction flows, reducing manual errors by 40%.</li>
-      </ul>
-    </div>
-    <div class="project" style="cursor:pointer;">
-      <h3>Online Banking System — Java, JDBC, MySQL</h3>
-      <ul>
-        <li>Secure banking application with account creation, deposits, withdrawals, and transaction history.</li>
-        <li>multithreaded transaction handling ensuring consistency in concurrent operations.</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -332,76 +279,34 @@
 <section id="experience">
   <h2>Experience</h2>
   <ul>
-    <li><b>Uniqtx - Software Development Intern</b> | Bangalore | Jan 2025 – Jun 2025<br>
-      Designed and deployed RESTful APIs using FastAPI and MongoDB for a restaurant management system.<br>
-      Collaborated in Agile sprints to deliver secure, mobile-first features, performed unit testing, and contributed to CI/CD integration on GitHub for automated deployments.<br>
-      <b>Key Contributions:</b>
+    <li><b>Uniqtx - Software Development Intern</b> | Bangalore | Jan 2025 – Jun 2025
       <ul>
-        <li>Developed authentication and authorization modules for user management.</li>
+        <li>Designed and deployed RESTful APIs using FastAPI and MongoDB for a restaurant management system.</li>
         <li>Optimized database queries, reducing response time by 30%.</li>
         <li>Created interactive dashboards for order analytics using React Native.</li>
-        <li>Documented API endpoints and workflows for seamless team onboarding.</li>
-        <li>Participated in code reviews and mentored junior interns.</li>
       </ul>
     </li>
-    <li><b>Hindustan Aeronautics Limited (HAL) - Internship Trainee</b> | Bangalore | Mar 2022 – Apr 2022<br>
-      Analyzed helicopter flight test and incident data to improve aviation safety reporting.<br>
-      Assisted with debugging mission-critical datasets used in aircraft performance validations.<br>
-      <b>Key Contributions:</b>
+    <li><b>HAL - Internship Trainee</b> | Bangalore | Mar 2022 – Apr 2022
       <ul>
         <li>Automated data cleaning scripts in Python for faster report generation.</li>
         <li>Visualized flight metrics to identify anomalies and trends.</li>
-        <li>Presented findings to senior engineers, aiding decision-making.</li>
       </ul>
     </li>
-    <li><b>Freelance Projects</b> | Remote | 2023 – Present<br>
-      <ul>
-        <li>Built custom web applications for local businesses using HTML, CSS, and JavaScript.</li>
-        <li>Integrated payment gateways and automated email notifications.</li>
-        <li>Provided technical support and maintenance for deployed solutions.</li>
-      </ul>
-    </li>
-    <li><b>Open Source Contributor</b> | GitHub | 2024 – Present<br>
-      <ul>
-        <li>Contributed bug fixes and documentation improvements to Python and JavaScript repositories.</li>
-        <li>Collaborated with global teams on feature enhancements and code reviews.</li>
-      </ul>
-    </li>
-  </ul>
-</section>
-
-<section id="publication">
-  <h2>Publication</h2>
-  <ul>
-    <li>
-      <b>Cloud-Enabled Threats: Risk of 51% Attacks in Cryptocurrencies</b><br>
-      International Journal of Modern Engineering Research (IJMER)<br>
-      Analyzed vulnerabilities in PaaS infrastructures expanding attack surfaces in blockchain systems; proposed proactive mitigation strategies.
-    </li>
-  </ul>
-</section>
-
-<section id="certifications">
-  <h2>Certifications</h2>
-  <ul>
-    <li>Microsoft Azure Fundamentals</li>
-    <li>Python for Everybody – Coursera</li>
-    <li>Data Science Bootcamp – Udemy</li>
   </ul>
 </section>
 
 <section id="achievements">
   <h2>Achievements</h2>
   <ul>
-    <li>🏆 1st Prize – IoT Drone Project, Christ University – A real-time drone system for flood rescue.</li>
-    <li>🥈 2nd Prize – Ideation Ignite, Acharya College – Recognized for proposing an innovative tech-based solution during ideation challenge.</li>
-    <li>🥇 1st Prize – Treasure Hunt, St. Paul College – Won for exceptional teamwork and strategic planning skills.</li>
+    <li>🏆 1st Prize – IoT Drone Project, Christ University</li>
+    <li>🥈 2nd Prize – Ideation Ignite, Acharya College</li>
+    <li>🥇 1st Prize – Treasure Hunt, St. Paul College</li>
   </ul>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
-  <p>📧 <a href="mailto:dineshashok333@gmail.com">dineshashok333@gmail.com</a></p>
+  <p>📧 <a href="mailto:dineshashok333@gmail.com" style="color:#00e0ff;">dineshashok333@gmail.com</a></p>
   <p>📱 +91 9886434743</p>
   <div class="links">
     <a href="https://linkedin.com/in/dinesh1115w" target="_blank">LinkedIn</a>
@@ -412,5 +317,6 @@
 <footer>
   <p>© 2025 Dinesh Yadav</p>
 </footer>
+
 </body>
 </html>
