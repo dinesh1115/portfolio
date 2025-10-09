@@ -244,7 +244,7 @@
 <section id="about">
   <h2>About Me</h2>
   <p>
-     Software Engineer pursuing MCA at St. Joseph’s University, Bengaluru, with hands-on experience in building full-stack applications, REST APIs, and AI-based systems. Passionate about developing scalable, efficient, and reliable software solutions. Eager to contribute to innovative projects and make a meaningful impact in dynamic tech-driven environments.
+    Software Engineer pursuing MCA at St. Joseph’s University, Bengaluru, with hands-on experience in building full-stack applications, REST APIs, and AI-based systems. Passionate about developing scalable, efficient, and reliable software solutions. Eager to contribute to innovative projects and make a meaningful impact in dynamic tech-driven environments.
   </p>
   <ul>
     <li>Strong foundation in CS fundamentals: Data Structures, Algorithms, OOP, SDLC</li>
@@ -279,27 +279,27 @@
   <div class="project-list">
     <div class="project">
       <h3>📦 Smart Inventory Management System</h3>
-      <p>Java desktop app for real-time stock tracking with automated low-stock alerts. Reduced manual inventory errors by 40%, boosting operational accuracy.</p>
+      <p>Java desktop app for real-time stock tracking with automated low-stock alerts. Built database using MySQL and JDBC, designed user-friendly Swing UI, and handled complete development as an individual contributor.</p>
     </div>
     <div class="project">
       <h3>🚁 Flood Rescue Drone Detection System</h3>
-      <p>Drone-based live flood zone detection pipeline with real-time alerts. Leveraged U-Net segmentation to enable early rescue operations.</p>
+      <p>Implemented a drone-based live flood detection system with U-Net segmentation in Python. Developed real-time communication between drone and laptop, optimized algorithms, and completed full system individually.</p>
     </div>
     <div class="project">
       <h3>🍴 Restaurant Management System</h3>
-      <p>Full-stack solution to manage menus, orders, and reservations. Integrated secure REST APIs for seamless communication between mobile UI and backend.</p>
+      <p>Full-stack solution with secure REST APIs and MongoDB backend. Developed UI screens and API endpoints, managing end-to-end development independently.</p>
     </div>
     <div class="project">
       <h3>📊 Customer Churn Prediction</h3>
-      <p>ML model (F1-score: 0.89) to identify churn risks and deliver actionable insights for customer retention.</p>
+      <p>Machine learning model predicting churn (F1-score: 0.89). Handled data cleaning, feature engineering, modeling, and evaluation entirely by myself.</p>
     </div>
     <div class="project">
       <h3>🧠 AI Chatbot for Students</h3>
-      <p>Python NLP chatbot to answer FAQs and automate admin support.</p>
+      <p>Python NLP chatbot to answer FAQs and automate admin support. Developed backend logic, trained model, and implemented system independently.</p>
     </div>
     <div class="project">
       <h3>📱 Personal Portfolio Website</h3>
-      <p>Responsive website to showcase my skills, projects, and achievements.</p>
+      <p>Responsive modern portfolio website with smooth scrolling, scroll spy, floating nav, and animations. Fully developed and styled individually.</p>
     </div>
   </div>
 </section>
@@ -309,15 +309,20 @@
   <ul>
     <li><b>Uniqtx - Software Development Intern</b> | Bangalore | Jan 2025 – Jun 2025
       <ul>
-        <li>Designed and deployed RESTful APIs using FastAPI and MongoDB for a restaurant management system.</li>
-        <li>Optimized database queries, reducing response time by 30%.</li>
-        <li>Created interactive dashboards for order analytics using React Native.</li>
+        <li>Designed and deployed RESTful APIs using FastAPI and MongoDB for restaurant management.</li>
+        <li>Optimized queries to reduce response time by 30%.</li>
+        <li>Built interactive dashboards using React Native for real-time analytics.</li>
+        <li>Collaborated with frontend and backend teams for seamless integration.</li>
+        <li>Individual contributor for API and dashboard modules.</li>
       </ul>
     </li>
     <li><b>HAL - Internship Trainee</b> | Bangalore | Mar 2022 – Apr 2022
       <ul>
-        <li>Automated data cleaning scripts in Python for faster report generation.</li>
-        <li>Visualized flight metrics to identify anomalies and trends.</li>
+        <li>Automated data cleaning scripts in Python for faster reports.</li>
+        <li>Analyzed flight metrics and visualized anomalies.</li>
+        <li>Generated automated reports for engineering decisions.</li>
+        <li>Gained hands-on experience in data processing pipelines.</li>
+        <li>Worked independently on analysis and visualization tasks.</li>
       </ul>
     </li>
   </ul>
@@ -347,16 +352,35 @@
 </footer>
 
 <script>
-  // ---------------- Scroll Spy ----------------
+  // ---------------- Scroll Spy & Smooth Scroll ----------------
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('.bottom-nav a');
 
+  // Smooth Scroll
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Scroll Spy
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
-      if (scrollY >= sectionTop) current = section.getAttribute('id');
+      const sectionHeight = section.offsetHeight;
+      if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+        current = section.getAttribute('id');
+      }
     });
+
+    // Highlight last section if scrolled to bottom
+    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 10) {
+      current = 'contact';
+    }
+
     navLinks.forEach(a => {
       a.classList.remove('active');
       if (a.getAttribute('href').includes(current)) a.classList.add('active');
