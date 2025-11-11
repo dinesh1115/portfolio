@@ -178,6 +178,14 @@
     /* Footer */
     footer{padding:2rem 1rem;border-top:1px solid var(--line);color:var(--muted)}
 
+    /* Publication proofs */
+    .proof-grid{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}
+    .proof-grid img{width:280px;height:auto;border-radius:12px;border:1px solid var(--line);cursor:pointer;transition:.2s}
+    .proof-grid img:hover{transform:scale(1.03);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:100}
+    .overlay img{max-width:90%;max-height:90%;border-radius:14px;box-shadow:0 0 25px rgba(255,255,255,.2)}
+    .overlay.active{display:flex}
+
     /* Responsive */
     @media (max-width:1024px){
       .hero-wrap{grid-template-columns:1fr}
@@ -440,7 +448,12 @@
         <p class="sub">Peer-reviewed research.</p>
         <div class="card pad">
           <strong>Cloud-Enabled Threats: Risk of 51% Attacks in Cryptocurrencies</strong>
-          <p class="sub">International Journal of Modern Engineering Research (IJMER). Proposed proactive mitigation strategies and cost-efficient blockchain protection leveraging cloud infrastructure.</p>
+          <p class="sub">Published in the <b>International Journal of Modern Engineering Research (IJMER)</b>. This work proposes proactive mitigation strategies and cost-efficient blockchain protection leveraging cloud infrastructure.</p>
+          <h3 style="margin:.8rem 0 0">Proof of Work</h3>
+          <div class="proof-grid">
+            <img src="Publicatio.jpg" alt="IJMER Publication Certificate" onclick="openOverlay(this.src)">
+            <img src="CFP.jpg" alt="Conference Presentation Certificate" onclick="openOverlay(this.src)">
+          </div>
         </div>
       </div>
     </section>
@@ -484,6 +497,11 @@
       </div>
     </section>
   </main>
+
+  <!-- Zoom overlay for proofs -->
+  <div class="overlay" id="overlay" onclick="this.classList.remove('active')">
+    <img id="overlay-img" src="" alt="Zoomed Proof Image">
+  </div>
 
   <footer>
     <div class="container" style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap">
@@ -577,6 +595,14 @@
         });
       });
     })();
+
+    // Publication proof overlay
+    function openOverlay(src){
+      const overlay = document.getElementById('overlay');
+      const img = document.getElementById('overlay-img');
+      img.src = src;
+      overlay.classList.add('active');
+    }
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
