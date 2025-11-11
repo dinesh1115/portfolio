@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      /* Light (day) theme */
       --bg:#ffffff; --surface:#f8fafc; --card:#ffffff;
       --text:#0b1220; --muted:#5b6b82;
       --accent:#2563eb; --accent-600:#1e40af; --accent-200:#93c5fd; --accent-100:#dbeafe;
@@ -19,7 +18,6 @@
       --container:1120px;
     }
     [data-theme="dark"]{
-      /* Smooth, readable dark (night) theme */
       --bg:#0b1220; --surface:#0f172a; --card:#111a2e;
       --text:#e6edf7; --muted:#9fb0c7;
       --accent:#60a5fa; --accent-600:#3b82f6; --accent-200:#93c5fd; --accent-100:#0f1b32;
@@ -75,19 +73,20 @@
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow)}
     .pad{padding:1.1rem}
 
-    /* Projects with animated logos & media galleries */
+    /* Projects */
     section#projects{background:#f0f6ff}
     [data-theme="dark"] section#projects{background:#0e1728}
     .projects{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-    .project{grid-column:span 6;display:grid;grid-template-columns:110px 1fr;gap:1rem;padding:1rem;text-decoration:none;color:inherit;border-radius:16px}
+    .project{grid-column:span 6;display:grid;grid-template-columns:110px 1fr;gap:1rem;padding:1rem;color:inherit;border-radius:16px}
     .project:hover{background:#f9fbff}
     [data-theme="dark"] .project:hover{background:color-mix(in oklab,var(--card) 85%,transparent)}
     .project .meta{display:flex;gap:.6rem;color:var(--muted)}
+    .project .actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}
     .tags{display:flex;gap:.4rem;flex-wrap:wrap}
     .tag{font-size:.83rem;padding:.32rem .6rem;border-radius:999px;background:#f1f5fb;border:1px solid #e5edf7}
     [data-theme="dark"] .tag{background:color-mix(in oklab,var(--card) 70%,transparent);border-color:var(--line)}
 
-    /* Animated logo blocks (no images) */
+    /* Animated logo blocks */
     .thumb{position:relative;overflow:hidden}
     .anim-logo{width:110px;height:82px;border-radius:12px;border:1px solid var(--line);
       background:linear-gradient(135deg,var(--accent),var(--accent-200));
@@ -97,6 +96,24 @@
     .anim-cbt{background:linear-gradient(135deg,#a78bfa,#60a5fa)}
     .anim-logo::after{content:"";position:absolute;inset:0;background:radial-gradient(120px 40px at 20% 30%,#ffffff44,transparent 60%),radial-gradient(180px 60px at 80% 70%,#ffffff22,transparent 60%);mix-blend-mode:screen;opacity:.8}
     @keyframes gradientShift{0%{filter:hue-rotate(0)}50%{filter:hue-rotate(25deg)}100%{filter:hue-rotate(0)}}
+
+    /* Icon styling + animations */
+    .icon-wrap{position:absolute;inset:0;display:grid;place-items:center}
+    .icon{width:44px;height:44px;opacity:.95;stroke:#ffffff;fill:none;stroke-width:2.2;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
+    [data-theme="dark"] .icon{stroke:#eef2ff}
+
+    /* Idle subtle animations */
+    .float-slow{animation:float 4s ease-in-out infinite}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-4px)}100%{transform:translateY(0)}}
+    .pulse-soft{animation:pulse 3.2s ease-in-out infinite}
+    @keyframes pulse{0%{opacity:.9}50%{opacity:1}100%{opacity:.9}}
+    .wiggle{animation:wiggle 5s ease-in-out infinite}
+    @keyframes wiggle{0%{transform:rotate(0)}50%{transform:rotate(-4deg)}100%{transform:rotate(0)}}
+
+    /* Hover emphasis */
+    .thumb:hover .icon{transform:scale(1.06); transition:transform .2s ease}
+    .thumb:hover .float-slow{animation-duration:3s}
+    .thumb:hover .wiggle{animation-duration:3.6s}
 
     /* Media grids */
     .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.6rem}
@@ -184,9 +201,9 @@
     <section class="hero">
       <div class="container hero-wrap">
         <div>
-          <span class="kicker">Open to full‑time & internships</span>
+          <span class="kicker">Open to full-time & internships</span>
           <h1>Software Development Engineer • Java · Python · Distributed Systems</h1>
-          <p class="sub" style="max-width:720px">Aspiring SDE with strong DSA, OOP, and system design. I build AI‑driven and cloud‑native apps using Spring Boot, FastAPI, AWS, and MongoDB. Award‑winning developer focused on high‑performance, fault‑tolerant, customer‑centric systems. Based in Bengaluru.</p>
+          <p class="sub" style="max-width:720px">Aspiring SDE with strong DSA, OOP, and system design. I build AI-driven and cloud-native apps using Spring Boot, FastAPI, AWS, and MongoDB. Award-winning developer focused on high-performance, fault-tolerant, customer-centric systems. Based in Bengaluru.</p>
           <div class="hero cta-row">
             <a class="btn primary" href="#projects">View Projects</a>
             <a class="btn outline" href="mailto:dineshashok333@gmail.com">Email Me</a>
@@ -208,53 +225,90 @@
     <section id="projects">
       <div class="container">
         <h2>Projects</h2>
-        <p class="sub">More on <a href="https://github.com/dinesh1115" target="_blank" rel="noopener" style="color:var(--accent)">GitHub</a>.</p>
+        <p class="sub">More on <a href="https://github.com/dinesh1115" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">GitHub</a>.</p>
         <div class="projects">
-          <!-- Drone project with proof videos and animated logo -->
-          <a class="card project" href="https://github.com/dinesh1115" target="_blank" rel="noopener">
-            <div class="thumb anim-logo anim-drone"></div>
+          <!-- Drone project -->
+          <article class="card project">
+            <div class="thumb anim-logo anim-drone" aria-hidden="true">
+              <div class="icon-wrap">
+                <!-- Simple drone/quadcopter SVG -->
+                <svg class="icon float-slow" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="2.2"></circle>
+                  <path d="M6 6l3 3M18 6l-3 3M6 18l3-3M18 18l-3-3"></path>
+                  <circle cx="5" cy="5" r="2.4" class="pulse-soft"></circle>
+                  <circle cx="19" cy="5" r="2.4" class="pulse-soft"></circle>
+                  <circle cx="5" cy="19" r="2.4" class="pulse-soft"></circle>
+                  <circle cx="19" cy="19" r="2.4" class="pulse-soft"></circle>
+                </svg>
+              </div>
+            </div>
             <div>
-              <div class="meta"><strong>Flood Rescue Drone Detection System</strong> · <span>ESP32 · Python · OpenCV · U‑Net</span></div>
-              <p class="sub">AI‑powered drone for real‑time flood detection, tracking, and alerts. Optimized on‑device inference; won 1st Prize at Christ University.</p>
+              <div class="meta"><strong>Flood Rescue Drone Detection System</strong> · <span>ESP32 · Python · OpenCV · U-Net</span></div>
+              <p class="sub">AI-powered drone for real-time flood detection, tracking, and alerts. Optimized on-device inference; won 1st Prize at Christ University.</p>
               <div class="tags"><span class="tag">Edge AI</span><span class="tag">Computer Vision</span><span class="tag">IoT</span></div>
               <div id="media-drone" class="media-grid">
                 <div class="video-frame">
-                  <video src="WhatsApp Video 2025-11-11 at 2.28.01 PM.mp4" controls playsinline muted></video>
+                  <video src="drone_video1.mp4" controls playsinline muted></video>
                 </div>
                 <div class="video-frame">
-                  <video src="WhatsApp Video 2025-11-11 at 2.28.10 PM.mp4" controls playsinline muted></video>
+                  <video src="drone_video2.mp4" controls playsinline muted></video>
                 </div>
               </div>
-            </div>
-          </a>
-
-          <!-- Restaurant project with image gallery + captions and animated logo -->
-          <a class="card project" href="https://github.com/dinesh1115" target="_blank" rel="noopener">
-            <div class="thumb anim-logo anim-rms"></div>
-            <div>
-              <div class="meta"><strong>Restaurant Management System</strong> · <span>FastAPI · React Native · MongoDB</span></div>
-              <p class="sub">Full‑stack system with menu, orders, reservations, table & user management, tax/parcel charges, and secure authentication.</p>
-              <div class="tags"><span class="tag">Full‑stack</span><span class="tag">Realtime</span><span class="tag">Mobile</span></div>
-              <div id="media-rms" class="media-grid">
-                <figure class="img-frame"><img src="SCREENSHORT_page-0001 (3).jpg" alt="Login, Register, Token in cookie"/><figcaption>Login & Register Interface</figcaption></figure>
-                <figure class="img-frame"><img src="SCREENSHORT_page-0002 (1).jpg" alt="Menu management, Tab management, User management"/><figcaption>Menu and User Management</figcaption></figure>
-                <figure class="img-frame"><img src="SCREENSHORT_page-0003 (2).jpg" alt="Menu, Place Order, Order Confirmed, Track Order"/><figcaption>Order Placement & Tracking</figcaption></figure>
-                <figure class="img-frame"><img src="SCREENSHORT_page-0004 (2).jpg" alt="Add Item, Dine-in receipt, Takeaway receipt"/><figcaption>Add Items & Receipt Generation</figcaption></figure>
-                <figure class="img-frame"><img src="SCREENSHORT_page-0005 (2).jpg" alt="Kitchen dashboard, Edit item, Order status"/><figcaption>Kitchen Dashboard & Order Status</figcaption></figure>
-                <figure class="img-frame"><img src="SCREENSHORT_page-0006 (2).jpg" alt="Call waiter and table overview"/><figcaption>Waiter Call & Table Overview</figcaption></figure>
+              <div class="actions">
+                <a class="btn outline" href="https://github.com/dinesh1115" target="_blank" rel="noopener noreferrer">View repository</a>
               </div>
             </div>
-          </a>
+          </article>
 
-          <!-- CBT project (simple for now) with animated logo -->
-          <a class="card project" href="https://github.com/dinesh1115" target="_blank" rel="noopener">
-            <div class="thumb anim-logo anim-cbt"></div>
-            <div>
-              <div class="meta"><strong>Computer‑Based Examination System</strong> · <span>Java · Spring Boot · MySQL</span></div>
-              <p class="sub">Secure online exam platform with role‑based access and REST APIs. MySQL schema + modular backend; unit tests and CI/CD.</p>
-              <div class="tags"><span class="tag">Auth</span><span class="tag">REST</span><span class="tag">CI/CD</span></div>
+          <!-- Restaurant project (3 images) -->
+          <article class="card project">
+            <div class="thumb anim-logo anim-rms" aria-hidden="true">
+              <div class="icon-wrap">
+                <!-- Fork & knife SVG -->
+                <svg class="icon wiggle" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 3v7M9 3v7M6 7h3"></path>
+                  <path d="M12 3v7"></path>
+                  <path d="M16 3h2a2 2 0 0 1 2 2v5"></path>
+                  <path d="M6 21v-6M12 21v-6M20 21v-6"></path>
+                </svg>
+              </div>
             </div>
-          </a>
+            <div>
+              <div class="meta"><strong>Restaurant Management System</strong> · <span>FastAPI · React Native · MongoDB</span></div>
+              <p class="sub">Full-stack system with menu, orders, reservations, table & user management, tax/parcel charges, and secure authentication.</p>
+              <div class="tags"><span class="tag">Full-stack</span><span class="tag">Realtime</span><span class="tag">Mobile</span></div>
+              <div id="media-rms" class="media-grid">
+                <figure class="img-frame"><img src="rms1.jpg" alt="Login, Register, Token in cookie"><figcaption>Login & Register Interface</figcaption></figure>
+                <figure class="img-frame"><img src="rms2.jpg" alt="Menu management, Tab management, User management"><figcaption>Menu and User Management</figcaption></figure>
+                <figure class="img-frame"><img src="rms3.jpg" alt="Menu, Place Order, Order Confirmed, Track Order"><figcaption>Order Placement & Tracking</figcaption></figure>
+              </div>
+              <div class="actions">
+                <a class="btn outline" href="https://github.com/dinesh1115" target="_blank" rel="noopener noreferrer">View repository</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CBT project -->
+          <article class="card project">
+            <div class="thumb anim-logo anim-cbt" aria-hidden="true">
+              <div class="icon-wrap">
+                <!-- Monitor / exam SVG -->
+                <svg class="icon float-slow" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="12" rx="2" ry="2"></rect>
+                  <path d="M8 20h8M12 16v4"></path>
+                  <path d="M7 8h6M7 11h10"></path>
+                </svg>
+              </div>
+            </div>
+            <div>
+              <div class="meta"><strong>Computer-Based Examination System</strong> · <span>Java · Spring Boot · MySQL</span></div>
+              <p class="sub">Secure online exam platform with role-based access and REST APIs. MySQL schema + modular backend; unit tests and CI/CD.</p>
+              <div class="tags"><span class="tag">Auth</span><span class="tag">REST</span><span class="tag">CI/CD</span></div>
+              <div class="actions">
+                <a class="btn outline" href="https://github.com/dinesh1115" target="_blank" rel="noopener noreferrer">View repository</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -303,7 +357,7 @@
               <div class="when">Jan 2025 – Jun 2025</div>
               <div>
                 <div class="role">Software Development Intern · UniQTX Telecom Solutions · Bangalore</div>
-                <div class="sub">Built production‑ready REST APIs and backend modules (FastAPI, MongoDB), secure auth, optimized queries; collaborated with frontend for realtime updates; tests & CI/CD; Agile sprints and reviews.</div>
+                <div class="sub">Built production-ready REST APIs and backend modules (FastAPI, MongoDB), secure auth, optimized queries; collaborated with frontend for realtime updates; tests & CI/CD; Agile sprints and reviews.</div>
               </div>
             </div>
             <div class="item">
@@ -339,10 +393,10 @@
     <section id="publications">
       <div class="container">
         <h2>Publication</h2>
-        <p class="sub">Peer‑reviewed research.</p>
+        <p class="sub">Peer-reviewed research.</p>
         <div class="card pad">
-          <strong>Cloud‑Enabled Threats: Risk of 51% Attacks in Cryptocurrencies</strong>
-          <p class="sub">International Journal of Modern Engineering Research (IJMER). Proposed proactive mitigation strategies and cost‑efficient blockchain protection leveraging cloud infrastructure.</p>
+          <strong>Cloud-Enabled Threats: Risk of 51% Attacks in Cryptocurrencies</strong>
+          <p class="sub">International Journal of Modern Engineering Research (IJMER). Proposed proactive mitigation strategies and cost-efficient blockchain protection leveraging cloud infrastructure.</p>
         </div>
       </div>
     </section>
@@ -368,18 +422,18 @@
         <div class="contact">
           <form class="card pad" onsubmit="event.preventDefault(); window.location.href='mailto:dineshashok333@gmail.com?subject=Project%20Enquiry%20–%20Dinesh%20Yadav';">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-              <input class="input" placeholder="Name" required aria-label="Name" />
-              <input class="input" placeholder="Email" type="email" required aria-label="Email" />
+              <input class="input" name="name" placeholder="Name" required aria-label="Name" />
+              <input class="input" name="email" placeholder="Email" type="email" required aria-label="Email" />
             </div>
             <div style="height:1rem"></div>
-            <textarea class="input" placeholder="Your message" required aria-label="Message"></textarea>
+            <textarea class="input" name="message" placeholder="Your message" required aria-label="Message"></textarea>
             <div style="height:1rem"></div>
             <button class="btn primary" type="submit">Send Email</button>
           </form>
           <div class="card pad" style="display:grid;gap:.6rem">
             <div>Email: <a href="mailto:dineshashok333@gmail.com">dineshashok333@gmail.com</a></div>
-            <div>LinkedIn: <a href="https://www.linkedin.com/in/dinesh1115w/" target="_blank" rel="noopener">/in/dinesh1115w</a></div>
-            <div>GitHub: <a href="https://github.com/dinesh1115" target="_blank" rel="noopener">@dinesh1115</a></div>
+            <div>LinkedIn: <a href="https://www.linkedin.com/in/dinesh1115w/" target="_blank" rel="noopener noreferrer">/in/dinesh1115w</a></div>
+            <div>GitHub: <a href="https://github.com/dinesh1115" target="_blank" rel="noopener noreferrer">@dinesh1115</a></div>
             <div><a class="btn" href="DINESH_YADAV_RESUME.pdf" download>Download Resume</a></div>
           </div>
         </div>
@@ -418,11 +472,11 @@
           const id = '#' + e.target.id; const link = navLinks.find(l=>l.getAttribute('href')===id);
           if(!link) return; if(e.isIntersecting){ navLinks.forEach(l=>l.classList.remove('active')); link.classList.add('active'); }
         })
-      },{ rootMargin:'-55% 0px -35% 0px', threshold:0 });
+      },{ rootMargin:'-55% 0px -35% 0px', threshold:0.01 });
       sects.forEach(s=> obs.observe(s));
     })();
 
-    // Gallery toggles (auto for every project with .media-grid)
+    // Gallery toggles
     (function(){
       const projects = document.querySelectorAll('.project');
       projects.forEach(p=>{
@@ -432,7 +486,6 @@
           const title = (p.querySelector('.meta strong')?.textContent || 'gallery').trim().toLowerCase().replace(/[^a-z0-9]+/g,'-');
           grid.id = `${title}-gallery`;
         }
-        // collapse by default
         grid.classList.add('collapsed');
         const vids = grid.querySelectorAll('video').length;
         const imgs = grid.querySelectorAll('img').length;
@@ -442,6 +495,7 @@
         btn.className = 'toggle-gallery';
         btn.setAttribute('data-target', `#${grid.id}`);
         btn.setAttribute('aria-expanded','false');
+        btn.type = 'button';
         btn.textContent = `Show Gallery (${count} ${kind})`;
         const tags = p.querySelector('.tags');
         if(tags) tags.after(btn); else p.appendChild(btn);
