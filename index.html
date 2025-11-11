@@ -56,7 +56,7 @@
     .drawer{position:fixed;inset:0;display:none}
     .drawer.open{display:block}
     .drawer-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(2px)}
-    .drawer-panel{position:absolute;right:0;top:0;bottom:0;width:min(86%,360px);background:var(--drawer-bg);color:#e6edf7;box-shadow:var(--shadow);transform:translateX(100%);transition:transform .25s ease;border-left:1px solid var(--line)}
+    .drawer-panel{position:absolute;right:0;top:0;bottom:0;width:min(86%,360px);background:var(--drawer-bg);color:#e6edf7;box-shadow:var(--shadow);transform:translateX(100%);transition:transform .25s ease;border-left:1px solid var(--line);outline:none}
     .drawer.open .drawer-panel{transform:translateX(0)}
     .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:1rem;border-bottom:1px solid rgba(255,255,255,.08)}
     .drawer-title{display:flex;align-items:center;gap:.6rem}
@@ -78,7 +78,8 @@
     .btn.primary{background:linear-gradient(180deg,var(--accent),var(--accent-600));color:#fff;border-color:transparent}
     .btn.outline{background:#fff;border-color:var(--accent-200);color:var(--accent-600)}
     [data-theme="dark"] .btn{background:var(--card);color:var(--text);border-color:var(--line)}
-    [data-theme="dark"] .btn.outline{background:transparent;border-color:color-mix(in oklab,var(--accent) 45%,transparent);color:#b8d5ff}
+    /* Replace color-mix for wider support */
+    [data-theme="dark"] .btn.outline{background:transparent;border-color:rgba(147,197,253,.45);color:#b8d5ff}
 
     /* Hero */
     .hero{background:linear-gradient(180deg,#f7fbff,transparent)}
@@ -101,12 +102,14 @@
     .projects{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
     .project{grid-column:span 6;display:grid;grid-template-columns:110px 1fr;gap:1rem;padding:1rem;color:inherit;border-radius:16px}
     .project:hover{background:#f9fbff}
-    [data-theme="dark"] .project:hover{background:color-mix(in oklab,var(--card) 85%,transparent)}
+    /* Replace color-mix for wider support */
+    [data-theme="dark"] .project:hover{background:rgba(255,255,255,.03)}
     .project .meta{display:flex;gap:.6rem;color:var(--muted)}
     .project .actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}
     .tags{display:flex;gap:.4rem;flex-wrap:wrap}
     .tag{font-size:.83rem;padding:.32rem .6rem;border-radius:999px;background:#f1f5fb;border:1px solid #e5edf7}
-    [data-theme="dark"] .tag{background:color-mix(in oklab,var(--card) 70%,transparent);border-color:var(--line)}
+    /* Replace color-mix for wider support */
+    [data-theme="dark"] .tag{background:rgba(255,255,255,.06);border-color:var(--line)}
 
     /* Animated logo blocks */
     .thumb{position:relative;overflow:hidden}
@@ -153,7 +156,8 @@
     .skill{grid-column:span 4}
     .pillset{display:flex;flex-wrap:wrap;gap:.5rem}
     .pill{padding:.38rem .64rem;border-radius:999px;border:1px solid #e5edf7;background:#f9fbff;color:#1f2937}
-    [data-theme="dark"] .pill{background:color-mix(in oklab,var(--surface) 70%,transparent);border-color:var(--line);color:var(--text)}
+    /* Replace color-mix for wider support */
+    [data-theme="dark"] .pill{background:rgba(255,255,255,.06);border-color:var(--line);color:var(--text)}
     .skill--programming{background:#f5f9ff;border-color:#dbeafe}
     .skill--backend{background:#eef2ff;border-color:#c7d2fe}
     .skill--databases{background:#f8fafc;border-color:#e5edf7}
@@ -219,7 +223,7 @@
           <a href="#contact">Contact</a>
         </nav>
         <button id="themeToggle" class="toggle" type="button" aria-label="Toggle theme">🌙</button>
-        <button id="drawerToggle" class="mobile-toggle" type="button" aria-label="Open menu" aria-haspopup="true" aria-controls="mobile-drawer">
+        <button id="drawerToggle" class="mobile-toggle" type="button" aria-label="Open menu" aria-haspopup="true" aria-controls="mobile-drawer" aria-expanded="false">
           <span class="hamb"></span>
         </button>
       </div>
@@ -227,7 +231,7 @@
     <!-- Mobile drawer -->
     <div id="mobile-drawer" class="drawer" aria-hidden="true">
       <div class="drawer-backdrop" data-close-drawer></div>
-      <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation" tabindex="-1">
         <div class="drawer-header">
           <div class="drawer-title">
             <div class="logo" aria-hidden="true">DY</div>
@@ -283,7 +287,7 @@
           <article class="card project">
             <div class="thumb anim-logo anim-drone" aria-hidden="true">
               <div class="icon-wrap">
-                <!-- Simple drone/quadcopter SVG -->
+                <!-- Drone/quadcopter SVG -->
                 <svg class="icon float-slow" viewBox="0 0 24 24" aria-hidden="true">
                   <circle cx="12" cy="12" r="2.2"></circle>
                   <path d="M6 6l3 3M18 6l-3 3M6 18l3-3M18 18l-3-3"></path>
@@ -330,9 +334,9 @@
               <p class="sub">Full-stack system with menu, orders, reservations, table & user management, tax/parcel charges, and secure authentication.</p>
               <div class="tags"><span class="tag">Full-stack</span><span class="tag">Realtime</span><span class="tag">Mobile</span></div>
               <div id="media-rms" class="media-grid">
-                <figure class="img-frame"><img src="rms1.jpg" alt="Login, Register, Token in cookie"><figcaption>Login & Register Interface</figcaption></figure>
-                <figure class="img-frame"><img src="rms2.jpg" alt="Menu management, Tab management, User management"><figcaption>Menu and User Management</figcaption></figure>
-                <figure class="img-frame"><img src="rms3.jpg" alt="Menu, Place Order, Order Confirmed, Track Order"><figcaption>Order Placement & Tracking</figcaption></figure>
+                <figure class="img-frame"><img loading="lazy" src="rms1.jpg" alt="Login, Register, Token in cookie"><figcaption>Login & Register Interface</figcaption></figure>
+                <figure class="img-frame"><img loading="lazy" src="rms2.jpg" alt="Menu management, Tab management, User management"><figcaption>Menu and User Management</figcaption></figure>
+                <figure class="img-frame"><img loading="lazy" src="rms3.jpg" alt="Menu, Place Order, Order Confirmed, Track Order"><figcaption>Order Placement & Tracking</figcaption></figure>
               </div>
               <div class="actions">
                 <a class="btn outline" href="https://github.com/dinesh1115" target="_blank" rel="noopener noreferrer">View repository</a>
@@ -451,8 +455,8 @@
           <p class="sub">Published in the <b>International Journal of Modern Engineering Research (IJMER)</b>. This work proposes proactive mitigation strategies and cost-efficient blockchain protection leveraging cloud infrastructure.</p>
           <h3 style="margin:.8rem 0 0">Proof of Work</h3>
           <div class="proof-grid">
-            <img src="Publicatio.jpg" alt="IJMER Publication Certificate" onclick="openOverlay(this.src)">
-            <img src="CFP.jpg" alt="Conference Presentation Certificate" onclick="openOverlay(this.src)">
+            <img loading="lazy" src="Publicatio.jpg" alt="IJMER Publication Certificate" onclick="openOverlay(this.src)">
+            <img loading="lazy" src="CFP.jpg" alt="Conference Presentation Certificate" onclick="openOverlay(this.src)">
           </div>
         </div>
       </div>
@@ -499,7 +503,7 @@
   </main>
 
   <!-- Zoom overlay for proofs -->
-  <div class="overlay" id="overlay" onclick="this.classList.remove('active')">
+  <div class="overlay" id="overlay" onclick="this.classList.remove('active');document.body.style.overflow='';">
     <img id="overlay-img" src="" alt="Zoomed Proof Image">
   </div>
 
@@ -535,14 +539,16 @@
       function openDrawer(){
         drawer.classList.add('open');
         drawer.setAttribute('aria-hidden','false');
+        toggle.setAttribute('aria-expanded','true');
         document.body.style.overflow = 'hidden';
-        panel.focus?.();
+        panel.focus();
       }
       function closeDrawer(){
         drawer.classList.remove('open');
         drawer.setAttribute('aria-hidden','true');
+        toggle.setAttribute('aria-expanded','false');
         document.body.style.overflow = '';
-        toggle.focus?.();
+        toggle.focus();
       }
       toggle.addEventListener('click', openDrawer);
       closeEls.forEach(el => el.addEventListener('click', closeDrawer));
@@ -596,12 +602,22 @@
       });
     })();
 
-    // Publication proof overlay
+    // Publication proof overlay (ESC + body scroll lock)
     function openOverlay(src){
       const overlay = document.getElementById('overlay');
       const img = document.getElementById('overlay-img');
       img.src = src;
       overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      document.addEventListener('keydown', escClose);
+    }
+    function escClose(e){
+      if(e.key === 'Escape'){
+        const overlay = document.getElementById('overlay');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', escClose);
+      }
     }
 
     // Year
