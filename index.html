@@ -16,6 +16,7 @@
       --line:#e6eaf0;
       --radius:14px; --radius-lg:18px; --shadow:0 12px 28px rgba(2,6,23,.06);
       --container:1120px;
+      --drawer-bg: rgba(11,18,32,.9);
     }
     [data-theme="dark"]{
       --bg:#0b1220; --surface:#0f172a; --card:#111a2e;
@@ -23,6 +24,7 @@
       --accent:#60a5fa; --accent-600:#3b82f6; --accent-200:#93c5fd; --accent-100:#0f1b32;
       --line:rgba(230,240,255,.12);
       --shadow:0 10px 24px rgba(2,6,23,.45), 0 3px 10px rgba(2,6,23,.32);
+      --drawer-bg: rgba(2,6,23,.9);
     }
 
     *{box-sizing:border-box}
@@ -32,7 +34,7 @@
       transition:background-color .25s ease,color .25s ease}
 
     /* Header */
-    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.85);backdrop-filter:saturate(150%) blur(6px);border-bottom:1px solid var(--line)}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(150%) blur(6px);border-bottom:1px solid var(--line)}
     [data-theme="dark"] header{background:rgba(11,18,32,.78)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem;width:min(100%,var(--container));margin-inline:auto}
     .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--text)}
@@ -42,6 +44,26 @@
     .toggle{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem .8rem;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--text);cursor:pointer;transition:background-color .2s,border-color .2s}
     .toggle:hover{background:var(--surface)}
     [data-theme="dark"] .toggle{background:var(--card);color:var(--text)}
+
+    /* Mobile toggle button */
+    .mobile-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--text);cursor:pointer}
+    [data-theme="dark"] .mobile-toggle{background:var(--card)}
+    .hamb{position:relative;width:20px;height:2px;background:currentColor;border-radius:2px}
+    .hamb::before,.hamb::after{content:"";position:absolute;left:0;width:20px;height:2px;background:currentColor;border-radius:2px}
+    .hamb::before{top:-6px}.hamb::after{top:6px}
+
+    /* Mobile drawer */
+    .drawer{position:fixed;inset:0;display:none}
+    .drawer.open{display:block}
+    .drawer-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(2px)}
+    .drawer-panel{position:absolute;right:0;top:0;bottom:0;width:min(86%,360px);background:var(--drawer-bg);color:#e6edf7;box-shadow:var(--shadow);transform:translateX(100%);transition:transform .25s ease;border-left:1px solid var(--line)}
+    .drawer.open .drawer-panel{transform:translateX(0)}
+    .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:1rem;border-bottom:1px solid rgba(255,255,255,.08)}
+    .drawer-title{display:flex;align-items:center;gap:.6rem}
+    .drawer-close{background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:10px;color:inherit;padding:.4rem .6rem;cursor:pointer}
+    .drawer-nav{display:grid;padding:1rem;gap:.4rem}
+    .drawer-nav a{color:#e6edf7;text-decoration:none;padding:.8rem 1rem;border-radius:10px}
+    .drawer-nav a:hover{background:rgba(255,255,255,.08)}
 
     /* Sections */
     section{padding:3.2rem 1rem}
@@ -101,16 +123,12 @@
     .icon-wrap{position:absolute;inset:0;display:grid;place-items:center}
     .icon{width:44px;height:44px;opacity:.95;stroke:#ffffff;fill:none;stroke-width:2.2;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
     [data-theme="dark"] .icon{stroke:#eef2ff}
-
-    /* Idle subtle animations */
     .float-slow{animation:float 4s ease-in-out infinite}
     @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-4px)}100%{transform:translateY(0)}}
     .pulse-soft{animation:pulse 3.2s ease-in-out infinite}
     @keyframes pulse{0%{opacity:.9}50%{opacity:1}100%{opacity:.9}}
     .wiggle{animation:wiggle 5s ease-in-out infinite}
     @keyframes wiggle{0%{transform:rotate(0)}50%{transform:rotate(-4deg)}100%{transform:rotate(0)}}
-
-    /* Hover emphasis */
     .thumb:hover .icon{transform:scale(1.06); transition:transform .2s ease}
     .thumb:hover .float-slow{animation-duration:3s}
     .thumb:hover .wiggle{animation-duration:3.6s}
@@ -169,6 +187,7 @@
     }
     @media (max-width:640px){
       nav{display:none}
+      .mobile-toggle{display:inline-flex}
       .skill{grid-column:span 12}
       .project{grid-template-columns:84px 1fr}
       .anim-logo{width:84px;height:64px}
@@ -192,7 +211,32 @@
           <a href="#contact">Contact</a>
         </nav>
         <button id="themeToggle" class="toggle" type="button" aria-label="Toggle theme">🌙</button>
+        <button id="drawerToggle" class="mobile-toggle" type="button" aria-label="Open menu" aria-haspopup="true" aria-controls="mobile-drawer">
+          <span class="hamb"></span>
+        </button>
       </div>
+    </div>
+    <!-- Mobile drawer -->
+    <div id="mobile-drawer" class="drawer" aria-hidden="true">
+      <div class="drawer-backdrop" data-close-drawer></div>
+      <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="drawer-header">
+          <div class="drawer-title">
+            <div class="logo" aria-hidden="true">DY</div>
+            <strong>Dinesh Yadav</strong>
+          </div>
+          <button class="drawer-close" type="button" data-close-drawer aria-label="Close menu">✕</button>
+        </div>
+        <nav class="drawer-nav" aria-label="Mobile">
+          <a href="#projects" data-close-drawer>Projects</a>
+          <a href="#skills" data-close-drawer>Skills</a>
+          <a href="#experience" data-close-drawer>Experience</a>
+          <a href="#education" data-close-drawer>Education</a>
+          <a href="#publications" data-close-drawer>Publication</a>
+          <a href="#achievements" data-close-drawer>Achievements</a>
+          <a href="#contact" data-close-drawer>Contact</a>
+        </nav>
+      </aside>
     </div>
   </header>
 
@@ -460,6 +504,32 @@
         const isDark = document.documentElement.getAttribute('data-theme')==='dark';
         if(isDark){ document.documentElement.removeAttribute('data-theme'); localStorage.setItem('theme','light'); btn.textContent='🌙'; }
         else{ document.documentElement.setAttribute('data-theme','dark'); localStorage.setItem('theme','dark'); btn.textContent='🌞'; }
+      });
+    })();
+
+    // Mobile drawer logic (open/close + accessibility)
+    (function(){
+      const toggle = document.getElementById('drawerToggle');
+      const drawer = document.getElementById('mobile-drawer');
+      const closeEls = drawer.querySelectorAll('[data-close-drawer]');
+      const panel = drawer.querySelector('.drawer-panel');
+
+      function openDrawer(){
+        drawer.classList.add('open');
+        drawer.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+        panel.focus?.();
+      }
+      function closeDrawer(){
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+        toggle.focus?.();
+      }
+      toggle.addEventListener('click', openDrawer);
+      closeEls.forEach(el => el.addEventListener('click', closeDrawer));
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
       });
     })();
 
