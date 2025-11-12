@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dinesh Yadav — SDE Portfolio</title>
-  <meta name="theme-color" content="#2563eb" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Dinesh Yadav &mdash; SDE Portfolio
+  </title>
+  <meta content="#2563eb" name="theme-color"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet"/>
   <style>
-    :root{
+   :root{
       --bg:#ffffff; --surface:#f8fafc; --card:#ffffff;
       --text:#0b1220; --muted:#5b6b82;
       --accent:#2563eb; --accent-600:#1e40af; --accent-200:#93c5fd; --accent-100:#dbeafe;
@@ -151,7 +153,21 @@
 
     /* Skills */
     section#skills{background:#f3fcf6}
-    [data-theme="dark"] section#skills{background:#0e1916}
+    [data-theme="dark"] section#skills {
+  background: #050d0b; /* darker, softer greenish tone */
+}
+
+[data-theme="dark"] .skill {
+  background: #0c1412; /* darker card */
+  border-color: rgba(255,255,255,0.08);
+  color: #d9e4f0; /* softer text */
+}
+
+[data-theme="dark"] .pill {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.1);
+  color: #c7d4e0;
+}
     .skills-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
     .skill{grid-column:span 4}
     .pillset{display:flex;flex-wrap:wrap;gap:.5rem}
@@ -207,315 +223,666 @@
       .media-grid{grid-template-columns:1fr}
     }
   </style>
-</head>
-<body>
+ </head>
+ <body>
   <header>
-    <div class="nav">
-      <a class="brand" href="#top"><div class="logo">DY</div><strong>Dinesh Yadav</strong></a>
-      <div style="display:flex;align-items:center;gap:.5rem">
-        <nav aria-label="Primary">
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#education">Education</a>
-          <a href="#publications">Publication</a>
-          <a href="#achievements">Achievements</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <button id="themeToggle" class="toggle" type="button" aria-label="Toggle theme">🌙</button>
-        <button id="drawerToggle" class="mobile-toggle" type="button" aria-label="Open menu" aria-haspopup="true" aria-controls="mobile-drawer" aria-expanded="false">
-          <span class="hamb"></span>
-        </button>
+   <div class="nav">
+    <a class="brand" href="#top">
+     <div class="logo">
+      DY
+     </div>
+     <strong>
+      Dinesh Yadav
+     </strong>
+    </a>
+    <div style="display:flex;align-items:center;gap:.5rem">
+     <nav aria-label="Primary">
+      <a href="#projects">
+       Projects
+      </a>
+      <a href="#skills">
+       Skills
+      </a>
+      <a href="#experience">
+       Experience
+      </a>
+      <a href="#education">
+       Education
+      </a>
+      <a href="#publications">
+       Publication
+      </a>
+      <a href="#achievements">
+       Achievements
+      </a>
+      <a href="#contact">
+       Contact
+      </a>
+     </nav>
+     <button aria-label="Toggle theme" class="toggle" id="themeToggle" type="button">
+      🌙
+     </button>
+     <button aria-controls="mobile-drawer" aria-expanded="false" aria-haspopup="true" aria-label="Open menu" class="mobile-toggle" id="drawerToggle" type="button">
+      <span class="hamb">
+      </span>
+     </button>
+    </div>
+   </div>
+   <!-- Mobile drawer -->
+   <div aria-hidden="true" class="drawer" id="mobile-drawer">
+    <div class="drawer-backdrop" data-close-drawer="">
+    </div>
+    <aside aria-label="Mobile navigation" aria-modal="true" class="drawer-panel" role="dialog" tabindex="-1">
+     <div class="drawer-header">
+      <div class="drawer-title">
+       <div aria-hidden="true" class="logo">
+        DY
+       </div>
+       <strong>
+        Dinesh Yadav
+       </strong>
       </div>
-    </div>
-    <!-- Mobile drawer -->
-    <div id="mobile-drawer" class="drawer" aria-hidden="true">
-      <div class="drawer-backdrop" data-close-drawer></div>
-      <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation" tabindex="-1">
-        <div class="drawer-header">
-          <div class="drawer-title">
-            <div class="logo" aria-hidden="true">DY</div>
-            <strong>Dinesh Yadav</strong>
-          </div>
-          <button class="drawer-close" type="button" data-close-drawer aria-label="Close menu">✕</button>
-        </div>
-        <nav class="drawer-nav" aria-label="Mobile">
-          <a href="#projects" data-close-drawer>Projects</a>
-          <a href="#skills" data-close-drawer>Skills</a>
-          <a href="#experience" data-close-drawer>Experience</a>
-          <a href="#education" data-close-drawer>Education</a>
-          <a href="#publications" data-close-drawer>Publication</a>
-          <a href="#achievements" data-close-drawer>Achievements</a>
-          <a href="#contact" data-close-drawer>Contact</a>
-        </nav>
-      </aside>
-    </div>
+      <button aria-label="Close menu" class="drawer-close" data-close-drawer="" type="button">
+       ✕
+      </button>
+     </div>
+     <nav aria-label="Mobile" class="drawer-nav">
+      <a data-close-drawer="" href="#projects">
+       Projects
+      </a>
+      <a data-close-drawer="" href="#skills">
+       Skills
+      </a>
+      <a data-close-drawer="" href="#experience">
+       Experience
+      </a>
+      <a data-close-drawer="" href="#education">
+       Education
+      </a>
+      <a data-close-drawer="" href="#publications">
+       Publication
+      </a>
+      <a data-close-drawer="" href="#achievements">
+       Achievements
+      </a>
+      <a data-close-drawer="" href="#contact">
+       Contact
+      </a>
+     </nav>
+    </aside>
+   </div>
   </header>
-
   <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-wrap">
+   <!-- HERO -->
+   <section class="hero">
+    <div class="container hero-wrap">
+     <div>
+      <span class="kicker">
+       Open to full-time &amp; internships
+      </span>
+      <h1>
+       Software Development Engineer &bull; Java &middot; Python &middot; Distributed Systems
+      </h1>
+      <p class="sub" style="max-width:720px">
+       Aspiring SDE with strong DSA, OOP, and system design. I build AI-driven and cloud-native apps using Spring Boot, FastAPI, AWS, and MongoDB. Award-winning developer focused on high-performance, fault-tolerant, customer-centric systems. Based in Bengaluru.
+      </p>
+      <div class="hero cta-row">
+       <a class="btn primary" href="#projects">
+        View Projects
+       </a>
+       <a class="btn outline" href="mailto:dineshashok333@gmail.com">
+        Email Me
+       </a>
+       <a class="btn" download="" href="DINESH_YADAV_RESUME.pdf">
+        Download Resume
+       </a>
+      </div>
+     </div>
+     <div class="hero-art">
+      <div class="blob">
+      </div>
+      <div class="card stat">
+       <div class="sub">
+        GitHub
+       </div>
+       <b>
+        @dinesh1115
+       </b>
+       <div class="sub">
+        Java &bull; Python &bull; Spring
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- PROJECTS -->
+   <section id="projects">
+    <div class="container">
+     <h2>
+      Projects
+     </h2>
+     <p class="sub">
+      More on
+      <a href="https://github.com/dinesh1115" rel="noopener noreferrer" style="color:var(--accent)" target="_blank">
+       GitHub
+      </a>
+      .
+     </p>
+     <div class="projects">
+      <!-- Drone project -->
+      <article class="card project">
+       <div aria-hidden="true" class="thumb anim-logo anim-drone">
+        <div class="icon-wrap">
+         <!-- Drone/quadcopter SVG -->
+         <svg aria-hidden="true" class="icon float-slow" viewbox="0 0 24 24">
+          <circle cx="12" cy="12" r="2.2">
+          </circle>
+          <path d="M6 6l3 3M18 6l-3 3M6 18l3-3M18 18l-3-3">
+          </path>
+          <circle class="pulse-soft" cx="5" cy="5" r="2.4">
+          </circle>
+          <circle class="pulse-soft" cx="19" cy="5" r="2.4">
+          </circle>
+          <circle class="pulse-soft" cx="5" cy="19" r="2.4">
+          </circle>
+          <circle class="pulse-soft" cx="19" cy="19" r="2.4">
+          </circle>
+         </svg>
+        </div>
+       </div>
+       <div>
+        <div class="meta">
+         <strong>
+          Flood Rescue Drone Detection System
+         </strong>
+         &middot;
+         <span>
+          ESP32 &middot; Python &middot; OpenCV &middot; U-Net
+         </span>
+        </div>
+        <p class="sub">
+         AI-powered drone for real-time flood detection, tracking, and alerts. Optimized on-device inference; won 1st Prize at Christ University.
+        </p>
+        <div class="tags">
+         <span class="tag">
+          Edge AI
+         </span>
+         <span class="tag">
+          Computer Vision
+         </span>
+         <span class="tag">
+          IoT
+         </span>
+        </div>
+        <div class="media-grid" id="media-drone">
+         <div class="video-frame">
+          <video controls="" muted="" playsinline="" src="drone_video1.mp4">
+          </video>
+         </div>
+         <div class="video-frame">
+          <video controls="" muted="" playsinline="" src="drone_video2.mp4">
+          </video>
+         </div>
+        </div>
+        <div class="actions">
+         <a class="btn outline" href="https://github.com/dinesh1115" rel="noopener noreferrer" target="_blank">
+          View repository
+         </a>
+        </div>
+       </div>
+      </article>
+      <!-- Restaurant project (3 images) -->
+      <article class="card project">
+       <div aria-hidden="true" class="thumb anim-logo anim-rms">
+        <div class="icon-wrap">
+         <!-- Fork & knife SVG -->
+         <svg aria-hidden="true" class="icon wiggle" viewbox="0 0 24 24">
+          <path d="M6 3v7M9 3v7M6 7h3">
+          </path>
+          <path d="M12 3v7">
+          </path>
+          <path d="M16 3h2a2 2 0 0 1 2 2v5">
+          </path>
+          <path d="M6 21v-6M12 21v-6M20 21v-6">
+          </path>
+         </svg>
+        </div>
+       </div>
+       <div>
+        <div class="meta">
+         <strong>
+          Restaurant Management System
+         </strong>
+         &middot;
+         <span>
+          FastAPI &middot; React Native &middot; MongoDB
+         </span>
+        </div>
+        <p class="sub">
+         Full-stack system with menu, orders, reservations, table &amp; user management, tax/parcel charges, and secure authentication.
+        </p>
+        <div class="tags">
+         <span class="tag">
+          Full-stack
+         </span>
+         <span class="tag">
+          Realtime
+         </span>
+         <span class="tag">
+          Mobile
+         </span>
+        </div>
+        <div class="media-grid" id="media-rms">
+         <figure class="img-frame">
+          <img alt="Login, Register, Token in cookie" loading="lazy" src="rms1.jpg"/>
+          <figcaption>
+           Login &amp; Register Interface
+          </figcaption>
+         </figure>
+         <figure class="img-frame">
+          <img alt="Menu management, Tab management, User management" loading="lazy" src="rms2.jpg"/>
+          <figcaption>
+           Menu and User Management
+          </figcaption>
+         </figure>
+         <figure class="img-frame">
+          <img alt="Menu, Place Order, Order Confirmed, Track Order" loading="lazy" src="rms3.jpg"/>
+          <figcaption>
+           Order Placement &amp; Tracking
+          </figcaption>
+         </figure>
+        </div>
+        <div class="actions">
+         <a class="btn outline" href="https://github.com/dinesh1115" rel="noopener noreferrer" target="_blank">
+          View repository
+         </a>
+        </div>
+       </div>
+      </article>
+      <!-- CBT project -->
+      <article class="card project">
+       <div aria-hidden="true" class="thumb anim-logo anim-cbt">
+        <div class="icon-wrap">
+         <!-- Monitor / exam SVG -->
+         <svg aria-hidden="true" class="icon float-slow" viewbox="0 0 24 24">
+          <rect height="12" rx="2" ry="2" width="18" x="3" y="4">
+          </rect>
+          <path d="M8 20h8M12 16v4">
+          </path>
+          <path d="M7 8h6M7 11h10">
+          </path>
+         </svg>
+        </div>
+       </div>
+       <div>
+        <div class="meta">
+         <strong>
+          Computer-Based Examination System
+         </strong>
+         &middot;
+         <span>
+          Java &middot; Spring Boot &middot; MySQL
+         </span>
+        </div>
+        <p class="sub">
+         Secure online exam platform with role-based access and REST APIs. MySQL schema + modular backend; unit tests and CI/CD.
+        </p>
+        <div class="tags">
+         <span class="tag">
+          Auth
+         </span>
+         <span class="tag">
+          REST
+         </span>
+         <span class="tag">
+          CI/CD
+         </span>
+        </div>
+        <div class="actions">
+         <a class="btn outline" href="https://github.com/dinesh1115" rel="noopener noreferrer" target="_blank">
+          View repository
+         </a>
+        </div>
+       </div>
+      </article>
+     </div>
+    </div>
+   </section>
+   <!-- SKILLS -->
+   <section id="skills">
+    <div class="container">
+     <h2>
+      Skills
+     </h2>
+     <p class="sub">
+      Practical strengths I bring to teams.
+     </p>
+     <div class="skills-grid">
+      <div class="card pad skill skill--programming">
+       <strong>
+        Programming
+       </strong>
+       <div class="pillset">
+        <span class="pill">
+         Java
+        </span>
+        <span class="pill">
+         Python
+        </span>
+        <span class="pill">
+         JavaScript
+        </span>
+        <span class="pill">
+         C#
+        </span>
+       </div>
+      </div>
+      <div class="card pad skill skill--backend">
+       <strong>
+        Backend &amp; Mobile
+       </strong>
+       <div class="pillset">
+        <span class="pill">
+         Spring Boot
+        </span>
+        <span class="pill">
+         FastAPI
+        </span>
+        <span class="pill">
+         React Native
+        </span>
+        <span class="pill">
+         JDBC
+        </span>
+       </div>
+      </div>
+      <div class="card pad skill skill--databases">
+       <strong>
+        SQL &amp; NoSQL
+       </strong>
+       <div class="pillset">
+        <span class="pill">
+         MySQL
+        </span>
+        <span class="pill">
+         MongoDB
+        </span>
+       </div>
+      </div>
+      <div class="card pad skill skill--cloud">
+       <strong>
+        Cloud &amp; DevOps
+       </strong>
+       <div class="pillset">
+        <span class="pill">
+         AWS (EC2, S3)
+        </span>
+        <span class="pill">
+         Azure (Basics)
+        </span>
+        <span class="pill">
+         GitHub Actions (CI/CD)
+        </span>
+       </div>
+      </div>
+      <div class="card pad skill skill--tools">
+       <strong>
+        Tools
+       </strong>
+       <div class="pillset">
+        <span class="pill">
+         Git
+        </span>
+        <span class="pill">
+         IntelliJ IDEA
+        </span>
+        <span class="pill">
+         VS Code
+        </span>
+        <span class="pill">
+         Postman
+        </span>
+       </div>
+      </div>
+      <div class="card pad skill skill--foundations">
+       <strong>
+        Foundations
+       </strong>
+       <div class="pillset">
+        <span class="pill">
+         DSA
+        </span>
+        <span class="pill">
+         OOP
+        </span>
+        <span class="pill">
+         Distributed Systems
+        </span>
+        <span class="pill">
+         System Design
+        </span>
+        <span class="pill">
+         REST APIs
+        </span>
+        <span class="pill">
+         TDD
+        </span>
+        <span class="pill">
+         Debugging
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- EXPERIENCE -->
+   <section id="experience">
+    <div class="container">
+     <h2>
+      Experience
+     </h2>
+     <div class="card pad">
+      <div class="timeline">
+       <div class="item">
+        <div class="when">
+         Jan 2025 &ndash; Jun 2025
+        </div>
         <div>
-          <span class="kicker">Open to full-time & internships</span>
-          <h1>Software Development Engineer | Java | Python |Spring Boot | React | AWS | Docker </h1>
-          <p class="sub" style="max-width:720px">Aspiring SDE with strong DSA, OOP, and system design. I build AI-driven and cloud-native apps using Spring Boot, FastAPI, AWS, and MongoDB. Award-winning developer focused on high-performance, fault-tolerant, customer-centric systems. Based in Bengaluru.</p>
-          <div class="hero cta-row">
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn outline" href="mailto:dineshashok333@gmail.com">Email Me</a>
-            <a class="btn" href="DINESH_YADAV_RESUME.pdf" download>Download Resume</a>
-          </div>
+         <div class="role">
+          Software Development Intern &middot; UniQTX Telecom Solutions &middot; Bangalore
+         </div>
+         <div class="sub">
+          Built production-ready REST APIs and backend modules (FastAPI, MongoDB), secure auth, optimized queries; collaborated with frontend for realtime updates; tests &amp; CI/CD; Agile sprints and reviews.
+         </div>
         </div>
-        <div class="hero-art">
-          <div class="blob"></div>
-          <div class="card stat">
-            <div class="sub">GitHub</div>
-            <b>@dinesh1115</b>
-            <div class="sub">Java • Python • Spring</div>
-          </div>
+       </div>
+       <div class="item">
+        <div class="when">
+         Mar 2022 &ndash; Apr 2022
         </div>
+        <div>
+         <div class="role">
+          Internship Trainee &middot; Hindustan Aeronautics Limited (HAL) &middot; Bangalore
+         </div>
+         <div class="sub">
+          Processed and validated helicopter flight &amp; incident datasets for safety analysis; automated preprocessing workflows; documented findings for engineering decisions.
+         </div>
+        </div>
+       </div>
       </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="container">
-        <h2>Projects</h2>
-        <p class="sub">More on <a href="https://github.com/dinesh1115" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">GitHub</a>.</p>
-        <div class="projects">
-          <!-- Drone project -->
-          <article class="card project">
-            <div class="thumb anim-logo anim-drone" aria-hidden="true">
-              <div class="icon-wrap">
-                <!-- Drone/quadcopter SVG -->
-                <svg class="icon float-slow" viewBox="0 0 24 24" aria-hidden="true">
-                  <circle cx="12" cy="12" r="2.2"></circle>
-                  <path d="M6 6l3 3M18 6l-3 3M6 18l3-3M18 18l-3-3"></path>
-                  <circle cx="5" cy="5" r="2.4" class="pulse-soft"></circle>
-                  <circle cx="19" cy="5" r="2.4" class="pulse-soft"></circle>
-                  <circle cx="5" cy="19" r="2.4" class="pulse-soft"></circle>
-                  <circle cx="19" cy="19" r="2.4" class="pulse-soft"></circle>
-                </svg>
-              </div>
-            </div>
-            <div>
-              <div class="meta"><strong>Flood Rescue Drone Detection System</strong> · <span>ESP32 · Python · OpenCV · U-Net</span></div>
-              <p class="sub">AI-powered drone for real-time flood detection, tracking, and alerts. Optimized on-device inference; won 1st Prize at Christ University.</p>
-              <div class="tags"><span class="tag">Edge AI</span><span class="tag">Computer Vision</span><span class="tag">IoT</span></div>
-              <div id="media-drone" class="media-grid">
-                <div class="video-frame">
-                  <video src="drone_video1.mp4" controls playsinline muted></video>
-                </div>
-                <div class="video-frame">
-                  <video src="drone_video2.mp4" controls playsinline muted></video>
-                </div>
-              </div>
-              <div class="actions">
-                <a class="btn outline" href="https://github.com/dinesh1115" target="_blank" rel="noopener noreferrer">View repository</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Restaurant project (3 images) -->
-          <article class="card project">
-            <div class="thumb anim-logo anim-rms" aria-hidden="true">
-              <div class="icon-wrap">
-                <!-- Fork & knife SVG -->
-                <svg class="icon wiggle" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M6 3v7M9 3v7M6 7h3"></path>
-                  <path d="M12 3v7"></path>
-                  <path d="M16 3h2a2 2 0 0 1 2 2v5"></path>
-                  <path d="M6 21v-6M12 21v-6M20 21v-6"></path>
-                </svg>
-              </div>
-            </div>
-            <div>
-              <div class="meta"><strong>Restaurant Management System</strong> · <span>FastAPI · React Native · MongoDB</span></div>
-              <p class="sub">Full-stack system with menu, orders, reservations, table & user management, tax/parcel charges, and secure authentication.</p>
-              <div class="tags"><span class="tag">Full-stack</span><span class="tag">Realtime</span><span class="tag">Mobile</span></div>
-              <div id="media-rms" class="media-grid">
-                <figure class="img-frame"><img loading="lazy" src="rms1.jpg" alt="Login, Register, Token in cookie"><figcaption>Login & Register Interface</figcaption></figure>
-                <figure class="img-frame"><img loading="lazy" src="rms2.jpg" alt="Menu management, Tab management, User management"><figcaption>Menu and User Management</figcaption></figure>
-                <figure class="img-frame"><img loading="lazy" src="rms3.jpg" alt="Menu, Place Order, Order Confirmed, Track Order"><figcaption>Order Placement & Tracking</figcaption></figure>
-              </div>
-              <div class="actions">
-                <a class="btn outline" href="https://github.com/dinesh1115" target="_blank" rel="noopener noreferrer">View repository</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- CBT project -->
-          <article class="card project">
-            <div class="thumb anim-logo anim-cbt" aria-hidden="true">
-              <div class="icon-wrap">
-                <!-- Monitor / exam SVG -->
-                <svg class="icon float-slow" viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="3" y="4" width="18" height="12" rx="2" ry="2"></rect>
-                  <path d="M8 20h8M12 16v4"></path>
-                  <path d="M7 8h6M7 11h10"></path>
-                </svg>
-              </div>
-            </div>
-            <div>
-              <div class="meta"><strong>Computer-Based Examination System</strong> · <span>Java · Spring Boot · MySQL</span></div>
-              <p class="sub">Secure online exam platform with role-based access and REST APIs. MySQL schema + modular backend; unit tests and CI/CD.</p>
-              <div class="tags"><span class="tag">Auth</span><span class="tag">REST</span><span class="tag">CI/CD</span></div>
-              <div class="actions">
-                <a class="btn outline" href="https://github.com/dinesh1115" target="_blank" rel="noopener noreferrer">View repository</a>
-              </div>
-            </div>
-          </article>
+     </div>
+    </div>
+   </section>
+   <!-- EDUCATION -->
+   <section id="education">
+    <div class="container">
+     <h2>
+      Education
+     </h2>
+     <div class="card pad">
+      <div class="item" style="display:grid;grid-template-columns:160px 1fr;gap:1rem">
+       <div class="when">
+        2023 &ndash; 2025
+       </div>
+       <div>
+        <div class="role">
+         MCA &middot; St. Joseph&rsquo;s University, Bengaluru
         </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="container">
-        <h2>Skills</h2>
-        <p class="sub">Practical strengths I bring to teams.</p>
-        <div class="skills-grid">
-          <div class="card pad skill skill--programming">
-            <strong>Programming</strong>
-            <div class="pillset"><span class="pill">Java</span><span class="pill">Python</span><span class="pill">JavaScript</span><span class="pill">C#</span></div>
-          </div>
-          <div class="card pad skill skill--backend">
-            <strong>Backend & Mobile</strong>
-            <div class="pillset"><span class="pill">Spring Boot</span><span class="pill">FastAPI</span><span class="pill">React Native</span><span class="pill">JDBC</span></div>
-          </div>
-          <div class="card pad skill skill--databases">
-            <strong>SQL & NoSQL</strong>
-            <div class="pillset"><span class="pill">MySQL</span><span class="pill">MongoDB</span></div>
-          </div>
-          <div class="card pad skill skill--cloud">
-            <strong>Cloud & DevOps</strong>
-            <div class="pillset"><span class="pill">AWS (EC2, S3)</span><span class="pill">Azure (Basics)</span><span class="pill">GitHub Actions (CI/CD)</span></div>
-          </div>
-          <div class="card pad skill skill--tools">
-            <strong>Tools</strong>
-            <div class="pillset"><span class="pill">Git</span><span class="pill">IntelliJ IDEA</span><span class="pill">VS Code</span><span class="pill">Postman</span></div>
-          </div>
-          <div class="card pad skill skill--foundations">
-            <strong>Foundations</strong>
-            <div class="pillset"><span class="pill">DSA</span><span class="pill">OOP</span><span class="pill">Distributed Systems</span><span class="pill">System Design</span><span class="pill">REST APIs</span><span class="pill">TDD</span><span class="pill">Debugging</span></div>
-          </div>
+        <div class="sub">
+         CGPA: 8.3
         </div>
+       </div>
       </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <div class="container">
-        <h2>Experience</h2>
-        <div class="card pad">
-          <div class="timeline">
-            <div class="item">
-              <div class="when">Jan 2025 – Jun 2025</div>
-              <div>
-                <div class="role">Software Development Intern · UniQTX Telecom Solutions · Bangalore</div>
-                <div class="sub">Built production-ready REST APIs and backend modules (FastAPI, MongoDB), secure auth, optimized queries; collaborated with frontend for realtime updates; tests & CI/CD; Agile sprints and reviews.</div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="when">Mar 2022 – Apr 2022</div>
-              <div>
-                <div class="role">Internship Trainee · Hindustan Aeronautics Limited (HAL) · Bangalore</div>
-                <div class="sub">Processed and validated helicopter flight & incident datasets for safety analysis; automated preprocessing workflows; documented findings for engineering decisions.</div>
-              </div>
-            </div>
-          </div>
+      <div class="item" style="display:grid;grid-template-columns:160px 1fr;gap:1rem">
+       <div class="when">
+        2019 &ndash; 2022
+       </div>
+       <div>
+        <div class="role">
+         BCA &middot; Jain University, Bengaluru
         </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education">
-      <div class="container">
-        <h2>Education</h2>
-        <div class="card pad">
-          <div class="item" style="display:grid;grid-template-columns:160px 1fr;gap:1rem">
-            <div class="when">2023 – 2025</div>
-            <div><div class="role">MCA · St. Joseph’s University, Bengaluru</div><div class="sub">CGPA: 8.3</div></div>
-          </div>
-          <div class="item" style="display:grid;grid-template-columns:160px 1fr;gap:1rem">
-            <div class="when">2019 – 2022</div>
-            <div><div class="role">BCA · Jain University, Bengaluru</div><div class="sub">CGPA: 8.0</div></div>
-          </div>
+        <div class="sub">
+         CGPA: 8.0
         </div>
+       </div>
       </div>
-    </section>
-
-    <!-- PUBLICATION & ACHIEVEMENTS -->
-    <section id="publications">
-      <div class="container">
-        <h2>Publication</h2>
-        <p class="sub">Peer-reviewed research.</p>
-        <div class="card pad">
-          <strong>Cloud-Enabled Threats: Risk of 51% Attacks in Cryptocurrencies</strong>
-          <p class="sub">Published in the <b>International Journal of Modern Engineering Research (IJMER)</b>. This work proposes proactive mitigation strategies and cost-efficient blockchain protection leveraging cloud infrastructure.</p>
-          <h3 style="margin:.8rem 0 0">Proof of Work</h3>
-          <div class="proof-grid">
-            <img loading="lazy" src="Publicatio.jpg" alt="IJMER Publication Certificate" onclick="openOverlay(this.src)">
-            <img loading="lazy" src="CFP.jpg" alt="Conference Presentation Certificate" onclick="openOverlay(this.src)">
-          </div>
-        </div>
+     </div>
+    </div>
+   </section>
+   <!-- PUBLICATION & ACHIEVEMENTS -->
+   <section id="publications">
+    <div class="container">
+     <h2>
+      Publication
+     </h2>
+     <p class="sub">
+      Peer-reviewed research.
+     </p>
+     <div class="card pad">
+      <strong>
+       Cloud-Enabled Threats: Risk of 51% Attacks in Cryptocurrencies
+      </strong>
+      <p class="sub">
+       Published in the
+       <b>
+        International Journal of Modern Engineering Research (IJMER)
+       </b>
+       . This work proposes proactive mitigation strategies and cost-efficient blockchain protection leveraging cloud infrastructure.
+      </p>
+      <h3 style="margin:.8rem 0 0">
+       Proof of Work
+      </h3>
+      <div class="proof-grid">
+       <img alt="IJMER Publication Certificate" loading="lazy" onclick="openOverlay(this.src)" src="Publicatio.jpg"/>
+       <img alt="Conference Presentation Certificate" loading="lazy" onclick="openOverlay(this.src)" src="CFP.jpg"/>
       </div>
-    </section>
-
-    <section id="achievements">
-      <div class="container">
-        <h2>Achievements</h2>
-        <div class="card pad">
-          <ul style="margin:0;padding-left:1.2rem;line-height:1.8">
-            <li><strong>1st Prize</strong> – IoT Drone Project (Flood Rescue System) · Christ University</li>
-            <li><strong>2nd Prize</strong> – Ideation Ignite · Acharya College</li>
-            <li><strong>1st Prize</strong> – Treasure Hunt · St. Paul College</li>
-          </ul>
-        </div>
+     </div>
+    </div>
+   </section>
+   <section id="achievements">
+    <div class="container">
+     <h2>
+      Achievements
+     </h2>
+     <div class="card pad">
+      <ul style="margin:0;padding-left:1.2rem;line-height:1.8">
+       <li>
+        <strong>
+         1st Prize
+        </strong>
+        &ndash; IoT Drone Project (Flood Rescue System) &middot; Christ University
+       </li>
+       <li>
+        <strong>
+         2nd Prize
+        </strong>
+        &ndash; Ideation Ignite &middot; Acharya College
+       </li>
+       <li>
+        <strong>
+         1st Prize
+        </strong>
+        &ndash; Treasure Hunt &middot; St. Paul College
+       </li>
+      </ul>
+     </div>
+    </div>
+   </section>
+   <!-- CONTACT -->
+   <section id="contact">
+    <div class="container">
+     <h2>
+      Contact
+     </h2>
+     <p class="sub">
+      📍 Bengaluru &middot; 📞
+      <a href="tel:+919886434743" style="color:inherit">
+       +91 98864 34743
+      </a>
+     </p>
+     <div class="contact">
+      <form class="card pad" onsubmit="event.preventDefault(); window.location.href='mailto:dineshashok333@gmail.com?subject=Project%20Enquiry%20&ndash;%20Dinesh%20Yadav';">
+       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <input aria-label="Name" class="input" name="name" placeholder="Name" required=""/>
+        <input aria-label="Email" class="input" name="email" placeholder="Email" required="" type="email"/>
+       </div>
+       <div style="height:1rem">
+       </div>
+       <textarea aria-label="Message" class="input" name="message" placeholder="Your message" required=""></textarea>
+       <div style="height:1rem">
+       </div>
+       <button class="btn primary" type="submit">
+        Send Email
+       </button>
+      </form>
+      <div class="card pad" style="display:grid;gap:.6rem">
+       <div>
+        Email:
+        <a href="mailto:dineshashok333@gmail.com">
+         dineshashok333@gmail.com
+        </a>
+       </div>
+       <div>
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/dinesh1115w/" rel="noopener noreferrer" target="_blank">
+         /in/dinesh1115w
+        </a>
+       </div>
+       <div>
+        GitHub:
+        <a href="https://github.com/dinesh1115" rel="noopener noreferrer" target="_blank">
+         @dinesh1115
+        </a>
+       </div>
+       <div>
+        <a class="btn" download="" href="DINESH_YADAV_RESUME.pdf">
+         Download Resume
+        </a>
+       </div>
       </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <p class="sub">📍 Bengaluru · 📞 <a href="tel:+919886434743" style="color:inherit">+91 98864 34743</a></p>
-        <div class="contact">
-          <form class="card pad" onsubmit="event.preventDefault(); window.location.href='mailto:dineshashok333@gmail.com?subject=Project%20Enquiry%20–%20Dinesh%20Yadav';">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-              <input class="input" name="name" placeholder="Name" required aria-label="Name" />
-              <input class="input" name="email" placeholder="Email" type="email" required aria-label="Email" />
-            </div>
-            <div style="height:1rem"></div>
-            <textarea class="input" name="message" placeholder="Your message" required aria-label="Message"></textarea>
-            <div style="height:1rem"></div>
-            <button class="btn primary" type="submit">Send Email</button>
-          </form>
-          <div class="card pad" style="display:grid;gap:.6rem">
-            <div>Email: <a href="mailto:dineshashok333@gmail.com">dineshashok333@gmail.com</a></div>
-            <div>LinkedIn: <a href="https://www.linkedin.com/in/dinesh1115w/" target="_blank" rel="noopener noreferrer">/in/dinesh1115w</a></div>
-            <div>GitHub: <a href="https://github.com/dinesh1115" target="_blank" rel="noopener noreferrer">@dinesh1115</a></div>
-            <div><a class="btn" href="DINESH_YADAV_RESUME.pdf" download>Download Resume</a></div>
-          </div>
-        </div>
-      </div>
-    </section>
+     </div>
+    </div>
+   </section>
   </main>
-
   <!-- Zoom overlay for proofs -->
   <div class="overlay" id="overlay" onclick="this.classList.remove('active');document.body.style.overflow='';">
-    <img id="overlay-img" src="" alt="Zoomed Proof Image">
+   <img alt="Zoomed Proof Image" id="overlay-img" src=""/>
   </div>
-
   <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap">
-      <small>© <span id="year"></span> Dinesh Yadav</small>
-      <small>Built with semantic HTML, modern CSS & a touch of JS</small>
-    </div>
+   <div class="container" style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+    <small>
+     &copy;
+     <span id="year">
+     </span>
+     Dinesh Yadav
+    </small>
+    <small>
+     Built with semantic HTML, modern CSS &amp; a touch of JS
+    </small>
+   </div>
   </footer>
-
   <script>
-    // Theme toggle + persistence + system preference
+   // Theme toggle + persistence + system preference
     (function(){
       const btn = document.getElementById('themeToggle');
       const stored = localStorage.getItem('theme');
@@ -623,5 +990,5 @@
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-</body>
+ </body>
 </html>
